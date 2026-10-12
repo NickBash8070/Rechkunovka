@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<mask id="mask_2">
+<g transform="matrix(1,0,0,900,0,0)">
+</g>
+</mask>
+</defs>
+<g>
+<g transform="matrix(.9569378,0,0,.95693787,0,-.23925781)">
+</g>
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".5" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#fffef5" d="M70 60H1530" />
+</g>
+</svg>

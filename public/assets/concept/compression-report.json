@@ -1,0 +1,110 @@
+[
+  {
+    "page": 1,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 457653,
+    "full_bytes": 457653,
+    "thumbnail_bytes": 73548,
+    "pixels_identical": true
+  },
+  {
+    "page": 2,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 239108,
+    "full_bytes": 196190,
+    "thumbnail_bytes": 22310,
+    "pixels_identical": true
+  },
+  {
+    "page": 3,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 1172567,
+    "full_bytes": 1123342,
+    "thumbnail_bytes": 117128,
+    "pixels_identical": true
+  },
+  {
+    "page": 4,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 588195,
+    "full_bytes": 588195,
+    "thumbnail_bytes": 64684,
+    "pixels_identical": true
+  },
+  {
+    "page": 5,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 1068187,
+    "full_bytes": 1068187,
+    "thumbnail_bytes": 116880,
+    "pixels_identical": true
+  },
+  {
+    "page": 6,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 708719,
+    "full_bytes": 538628,
+    "thumbnail_bytes": 64262,
+    "pixels_identical": true
+  },
+  {
+    "page": 7,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 921331,
+    "full_bytes": 864330,
+    "thumbnail_bytes": 93520,
+    "pixels_identical": true
+  },
+  {
+    "page": 8,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 713387,
+    "full_bytes": 713387,
+    "thumbnail_bytes": 78984,
+    "pixels_identical": true
+  },
+  {
+    "page": 9,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 447198,
+    "full_bytes": 414636,
+    "thumbnail_bytes": 44322,
+    "pixels_identical": true
+  },
+  {
+    "page": 10,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 1770871,
+    "full_bytes": 1770871,
+    "thumbnail_bytes": 245780,
+    "pixels_identical": true
+  },
+  {
+    "page": 11,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 1326675,
+    "full_bytes": 1326675,
+    "thumbnail_bytes": 185610,
+    "pixels_identical": true
+  },
+  {
+    "page": 12,
+    "width": 1719,
+    "height": 1214,
+    "source_bytes": 1636362,
+    "full_bytes": 1636362,
+    "thumbnail_bytes": 219748,
+    "pixels_identical": true
+  }
+]

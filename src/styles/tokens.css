@@ -1,0 +1,23 @@
+@font-face{font-family:'Nimbus Sans PDF';src:url('/fonts/nimbus-sans-regular.otf') format('opentype');font-style:normal;font-weight:400;font-display:block;ascent-override:72.9%;descent-override:27.1%;line-gap-override:0%}
+@font-face{font-family:'Nimbus Sans PDF';src:url('/fonts/nimbus-sans-bold.otf') format('opentype');font-style:normal;font-weight:700;font-display:swap;ascent-override:72.9%;descent-override:27.1%;line-gap-override:0%}
+@font-face{font-family:'P052 PDF';src:url('/fonts/p052-roman.otf') format('opentype');font-style:normal;font-weight:400;font-display:block;ascent-override:72.6%;descent-override:27.4%;line-gap-override:0%}
+:root{
+ --space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;
+ --space-5:48px;--space-6:64px;--space-7:96px;--space-8:128px;
+ --card-gap:var(--space-3);
+ --section-space:var(--space-8);--card-padding:var(--space-4);--dialog-padding:var(--space-6);
+ --font-display:'P052 PDF';--font-heading:'Nimbus Sans PDF';--font-body:'Nimbus Sans PDF';
+ --color-background:#f3f0e6;--color-surface:#e5e8d8;--color-paper:#fffef5;
+ --color-text:#20362f;--color-text-secondary:#657165;--color-accent:#909c6d;
+ --color-border:#cfd2c3;--color-water:#688994;--color-plot-resort:#e1e7cd;--color-plot-housing:#dfeaec;
+ --text-display-xl:113;--text-display-lg:83;--text-heading-lg:70;--text-heading-md:59;
+ --text-body-lg:25;--text-body-md:21;--text-caption:13;--text-footnote:10;
+ --text-stat-concept:clamp(26px,2.2vw,44px);
+ --mobile-display:clamp(33px,5.9vw,70px);--mobile-heading:clamp(31px,4.6vw,58px);
+ --mobile-body:clamp(17px,2.05vw,23px);--mobile-caption:clamp(11px,1.35vw,14px);
+ --mobile-space:clamp(22px,4.375vw,48px);
+}
+@media(max-width:1439px){:root{--section-space:var(--space-7)}}
+@media(max-width:1119px){:root{--dialog-padding:var(--space-5)}}
+@media(min-width:741px) and (max-width:1119px){:root{--card-padding:var(--space-3)}}
+@media(max-width:740px){:root{--section-space:var(--space-6);--dialog-padding:var(--space-3);--card-padding:var(--space-3)}}

@@ -1,0 +1,34 @@
+:root{--motion-ease:cubic-bezier(.22,1,.36,1);--motion-micro:240ms;--motion-reveal:680ms;--motion-distance:24px}
+.motion-target.motion-target{transition:opacity var(--motion-reveal) var(--motion-ease) var(--reveal-delay,0ms),transform var(--motion-reveal) var(--motion-ease) var(--reveal-delay,0ms)}
+.motion-target:not(.motion-visible){opacity:0;transform:translateY(var(--motion-distance))}
+.motion-target.motion-visible{opacity:1;transform:none}
+.motion-target.motion-art{--motion-distance:0px;--motion-reveal:1000ms}
+.motion-target.motion-art:not(.motion-visible){opacity:.75;transform:none}
+.motion-counter{display:inline-block;position:relative;white-space:pre}
+.counter-final{opacity:0}
+.counter-value{position:absolute;left:0;top:0;white-space:pre}
+.action,.video-card,.agency-footer button,.concept-grid button,.gallery-thumbnails>button{transition:background-color var(--motion-micro) ease,color var(--motion-micro) ease,opacity var(--motion-micro) ease,transform var(--motion-micro) var(--motion-ease)}
+.action:hover,.action:focus-visible,.agency-footer button:hover,.agency-footer button:focus-visible{opacity:.88}
+.concept-grid button:hover,.concept-grid button:focus-visible{transform:translateY(-2px)}
+.header-link,.manager-links a,.contact-links a,.dialog-close{transition:opacity var(--motion-micro) ease}
+.site-header .header-link>span,.site-header nav a{transition:text-decoration-color var(--motion-micro) ease; text-decoration-line:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px}
+.manager-links a:hover,.contact-links a:hover,.dialog-close:hover{opacity:.7}
+.faq-accordion summary h3{transition:opacity var(--motion-micro) ease}
+.faq-accordion summary:hover h3{opacity:.8}
+.dialog[open]{animation:dialog-arrive 360ms var(--motion-ease) both}
+@keyframes dialog-arrive{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+/* A repeating location cue makes the project marker easy to find. */
+.source-art .location-pulse-ring{animation:location-marker-pulse 2200ms ease-out infinite}
+.source-art .location-pulse-dot{animation:location-dot-pulse 2200ms ease-in-out infinite}
+.location-pulse-ring path{stroke-width:2;vector-effect:non-scaling-stroke}
+@keyframes location-marker-pulse{0%{opacity:1;scale:1}80%,100%{opacity:0;scale:1.7}}
+@keyframes location-dot-pulse{0%,100%{scale:1}40%{scale:1.18}}
+.plot-card.motion-target .plot-stroke{stroke-dasharray:1;stroke-dashoffset:1}
+.plot-card.motion-target .plot-fill{fill-opacity:0}
+.plot-card.motion-visible .plot-stroke{animation:plot-outline-draw 1600ms ease-in-out var(--reveal-delay,0ms) both}
+.plot-card.motion-visible .plot-fill{animation:plot-fill-arrive 600ms ease calc(var(--reveal-delay,0ms) + 1600ms) both}
+@keyframes plot-outline-draw{to{stroke-dashoffset:0}}
+@keyframes plot-fill-arrive{from{fill-opacity:0}to{fill-opacity:1}}
+@media(prefers-reduced-motion:reduce){.plot-card.plot-card .plot-stroke{animation:none;stroke-dasharray:none;stroke-dashoffset:0}.plot-card.plot-card .plot-fill{animation:none;fill-opacity:1}}
+@media(max-width:1119px){:root{--motion-reveal:560ms;--motion-distance:16px}.motion-target.motion-art{--motion-reveal:800ms}}
+@media(prefers-reduced-motion:reduce){.motion-target,.motion-target:not(.motion-visible),.motion-target.motion-art:not(.motion-visible){opacity:1;transform:none;transition:none}.source-art .location-pulse-ring,.source-art .location-pulse-dot,.dialog[open]{animation:none}}

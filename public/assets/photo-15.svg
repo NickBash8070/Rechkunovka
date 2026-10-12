@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<mask id="mask_2">
+<g transform="matrix(1,0,0,900,0,0)">
+<image id="image_3" width="1600" height="1" xlink:href="original-dfd240153610618b.png" />
+</g>
+</mask>
+</defs>
+<g>
+<g transform="matrix(1.25,0,0,1.25,0,-73.75)">
+<image id="image_1" width="1280" height="838" xlink:href="original-cee9003ba671490d.jpg" />
+</g>
+<g mask="url(#mask_2)">
+<g transform="matrix(1,0,0,900,0,0)">
+<image id="image_4" width="1600" height="1" xlink:href="original-3c0fe68a1d1f8613.png" />
+</g>
+</g>
+</g>
+</svg>

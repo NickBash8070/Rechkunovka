@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="70" viewBox="0 0 70 70">
+<defs>
+ <mask id="logo-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="70" height="70">
+  <image width="1254" height="1254" transform="matrix(.056618826,0,0,.05661882,-.3999939,-.4000244)" xlink:href="original-89775429527ab259.png"/>
+ </mask>
+</defs>
+<!-- Preserve the original letter shapes and use a clean vector outline. -->
+<rect x="11" y="26" width="48" height="18" fill="#cfd2c3" mask="url(#logo-mask)"/>
+<circle cx="35" cy="35" r="29" fill="none" stroke="#cfd2c3" stroke-width="2" vector-effect="non-scaling-stroke"/>
+</svg>

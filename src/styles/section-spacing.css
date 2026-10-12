@@ -1,0 +1,12 @@
+:root{--photo-side-overlay:linear-gradient(90deg,rgb(32 54 47 / .44) 0%,rgb(32 54 47 / .28) 38%,rgb(32 54 47 / .08) 62%,transparent 82%);--hero-side-overlay:linear-gradient(90deg,rgb(229 232 216 / .25) 0%,rgb(229 232 216 / .12) 38%,transparent 72%)}
+.info-section{padding-block:var(--section-space)}
+.info-section .section-note{padding-bottom:0}
+.contact-section{padding-bottom:0}
+.contact-section .agency-footer{padding-block:var(--space-4);margin-top:var(--section-space)}
+.photo-section{padding-block:var(--section-space)}
+.photo-section .photo-content{padding-top:0}
+.hero .photo-heading,.photo-11 .photo-heading{margin-top:0}
+.photo-section .section-note{padding-bottom:0}
+.photo-section:after{background:var(--photo-side-overlay)}
+.hero:after{display:block;background:var(--hero-side-overlay)}
+@media(max-width:1119px){.photo-section:not(.hero):after{background:linear-gradient(90deg,rgb(32 54 47 / .46),rgb(32 54 47 / .28) 65%,rgb(32 54 47 / .08))}}

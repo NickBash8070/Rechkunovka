@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1600" height="900" viewBox="0 0 1600 900">
+<path transform="matrix(1,0,0,-1,0,900)" d="M0 0H1600V900H0Z" fill="#f3f0e6" />
+<path transform="matrix(1,0,0,-1,0,900)" d="M75 100H545V580H75Z" fill="#e5e8d8" />
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".7" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#20362f" d="M105 162H515" />
+<path transform="matrix(1,0,0,-1,0,900)" d="M570 100H1040V580H570Z" fill="#e5e8d8" />
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".7" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#20362f" d="M600 162H1010" />
+<path transform="matrix(1,0,0,-1,0,900)" d="M1065 100H1530V580H1065Z" fill="#20362f" />
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".7" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#fffef5" d="M1095 162H1500" />
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".5" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#657165" d="M70 60H1530" />
+</svg>

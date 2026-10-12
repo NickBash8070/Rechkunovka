@@ -1,0 +1,9 @@
+:root{--icon-stroke:2px}
+.source-art:is(.icon,.play-icon) [stroke]{stroke-width:var(--icon-stroke);vector-effect:non-scaling-stroke}
+/* The wide people artwork needs a larger canvas to match the taller KPI icons. */
+.market-stats .icon[data-art="people"]{position:relative}
+.market-stats .icon[data-art="people"] svg{position:absolute;width:40px;height:40px;left:-1px;top:-2.5px;max-width:none}
+.housing-formats .format-grid .icon:is([data-art="spa"],[data-art="people"]){position:relative}
+.housing-formats .format-grid .icon:is([data-art="spa"],[data-art="people"]) svg{position:absolute;left:-2px;top:-2px;max-width:none}
+.housing-formats .format-grid .icon[data-art="spa"] svg{width:32px;height:36px}
+.housing-formats .format-grid .icon[data-art="people"] svg{width:36px;height:36px}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<mask id="mask_2">
+<g transform="matrix(1,0,0,900,0,0)">
+<image id="image_3" width="1600" height="1" xlink:href="original-dfd240153610618b.png" />
+</g>
+</mask>
+</defs>
+<g>
+<g transform="matrix(.9569378,0,0,.95693787,0,-.23925781)">
+<image id="image_1" width="1672" height="941" xlink:href="original-821d31f1238b7f7c.jpg" />
+</g>
+<g mask="url(#mask_2)">
+<g transform="matrix(1,0,0,900,0,0)">
+<image id="image_4" width="1600" height="1" xlink:href="original-3c0fe68a1d1f8613.png" />
+</g>
+</g>
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".7" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#fffef5" d="M75 426H920" />
+<path transform="matrix(1,0,0,-1,0,900)" stroke-width=".5" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#fffef5" d="M70 60H1530" />
+</g>
+</svg>

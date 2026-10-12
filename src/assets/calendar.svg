@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="42" height="38" viewBox="0 0 42 38">
+<defs>
+<clipPath id="clip_1">
+<path transform="matrix(1,0,0,-1,-847,263)" d="M847 225H889V263H847Z" />
+</clipPath>
+<clipPath id="clip_2">
+<path transform="matrix(1,0,0,-1,-847,263)" d="M0 0H1600V900H0Z" />
+</clipPath>
+</defs>
+<g clip-path="url(#clip_1)">
+<g clip-path="url(#clip_2)">
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#cfd2c3" d="M75 500H755" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M82 436H104V468H82Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M87 459H99" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M87 452H99" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M87 445H99" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#cfd2c3" d="M850 500H1530" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M863 462C863 459.2386 865.2386 457 868 457 870.7614 457 873 459.2386 873 462 873 464.7614 870.7614 467 868 467 865.2386 467 863 464.7614 863 462Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M851 458C851 456.34315 852.34317 455 854 455 855.65689 455 857 456.34315 857 458 857 459.65687 855.65689 461 854 461 852.34317 461 851 459.65687 851 458Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M879 458C879 456.34315 880.34317 455 882 455 883.65689 455 885 456.34315 885 458 885 459.65687 883.65689 461 882 461 880.34317 461 879 459.65687 879 458Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M860 438V447" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M860 447 868 452" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M868 452 876 447" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M876 447V438" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M851 438V449" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M885 438V449" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#cfd2c3" d="M75 290H755" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M80 226H106V258H80Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M86 251H90" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M96 251H100" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M86 243H90" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M96 243H100" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M86 235H90" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M96 235H100" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#cfd2c3" d="M850 290H1530" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M853 227H883V254H853Z" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M853 246H883" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M860 259V250" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M876 259V250" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M860 237 865 232" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width="1.4" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#909c6d" d="M865 232 876 241" />
+<path transform="matrix(1,0,0,-1,-847,263)" stroke-width=".5" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#657165" d="M70 60H1530" />
+</g>
+</g>
+</svg>

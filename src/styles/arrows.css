@@ -1,0 +1,6 @@
+:root{--arrow-size:24px;--arrow-stroke:2px;--arrow-hover-shift:3px}
+.arrow-icon{display:block;width:var(--arrow-size);height:var(--arrow-size);flex:0 0 var(--arrow-size);overflow:visible;--arrow-direction:1;transition:translate 250ms ease,color 250ms ease,opacity 250ms ease}
+.arrow-icon-left{--arrow-direction:-1}
+.arrow-icon path{stroke-width:var(--arrow-stroke);vector-effect:non-scaling-stroke}
+:is(button,a):is(:hover,:focus-visible) .arrow-icon{translate:calc(var(--arrow-hover-shift) * var(--arrow-direction)) 0}
+@media(prefers-reduced-motion:reduce){.arrow-icon{transition:none;translate:none!important}}
