@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+User-requested initial percentage loader (2026-10-15): render a white full-screen loader with green percentage directly in the initial HTML, with critical inline styles hiding #root before any app script runs, preventing content flashes before loading. Advance monotonically through app readiness, font and hero-image completion; show 100% before revealing the site with a brief fade. Preserve lazy video/map loading. Respect reduced motion, StrictMode and asset failures; provide a bounded fallback/retry if boot cannot complete. Publish the change.
+
 User-requested tablet hero video alignment correction (2026-10-15): left-align the hero video card throughout widths <=1119px, including 856px, rather than restricting alignment to individual iPad widths. Preserve all existing card dimensions, spacing and desktop grid placement. Publish this isolated correction.
 
 User-requested subtle phone agency logo zoom (2026-10-15): observe the footer logo with the shared once-per-appearance reveal mechanism. On phones <=650px, gently scale from .94 to 1 over 650ms when it enters the viewport, without opacity fades or positional movement. Preserve the 128px layout box and final size; tablet/desktop and reduced-motion users see a static logo.
