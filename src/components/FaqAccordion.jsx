@@ -7,8 +7,8 @@ function FaqItem({question,answer,expanded,onToggle,reduced}){
  const ref=useRef(null);
  useLayoutEffect(()=>animateDisclosure(ref.current,expanded,reduced),[expanded,reduced]);
  return <details ref={ref}>
-  <summary aria-expanded={expanded} onClick={event=>{event.preventDefault();onToggle()}}><h3>{question}</h3><span className="faq-toggle" aria-hidden="true"/></summary>
-  <div className="faq-answer"><p>{answer}</p></div>
+  <summary aria-expanded={expanded} onClick={event=>{event.preventDefault();onToggle()}}><h3 className="type-h5">{question}</h3><span className="faq-toggle" aria-hidden="true"/></summary>
+  <div className="faq-answer"><p className="type-body">{answer}</p></div>
  </details>;
 }
 export function FaqAccordion(){

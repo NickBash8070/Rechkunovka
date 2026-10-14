@@ -1,17 +1,26 @@
 :root{--motion-ease:cubic-bezier(.22,1,.36,1);--motion-micro:240ms;--motion-reveal:680ms;--motion-distance:24px}
+.photo-section .photo-background{transform:scale(var(--photo-zoom,1));transform-origin:center;transition:transform 400ms ease-out}
+@media(prefers-reduced-motion:reduce){.photo-section .photo-background{transform:none;transition:none}}
 .motion-target.motion-target{transition:opacity var(--motion-reveal) var(--motion-ease) var(--reveal-delay,0ms),transform var(--motion-reveal) var(--motion-ease) var(--reveal-delay,0ms)}
 .motion-target:not(.motion-visible){opacity:0;transform:translateY(var(--motion-distance))}
 .motion-target.motion-visible{opacity:1;transform:none}
+.agency-logo.motion-target{opacity:1;transform:none;transition:none}
+@media(max-width:650px) and (prefers-reduced-motion:no-preference){
+ .agency-logo.motion-target{transition:transform 650ms var(--motion-ease);transform-origin:center}
+ .agency-logo.motion-target:not(.motion-visible){opacity:1;transform:scale(.94)}
+ .agency-logo.motion-target.motion-visible{transform:scale(1)}
+}
 .motion-target.motion-art{--motion-distance:0px;--motion-reveal:1000ms}
 .motion-target.motion-art:not(.motion-visible){opacity:.75;transform:none}
 .motion-counter{display:inline-block;position:relative;white-space:pre}
 .counter-final{opacity:0}
 .counter-value{position:absolute;left:0;top:0;white-space:pre}
-.action,.video-card,.agency-footer button,.concept-grid button,.gallery-thumbnails>button{transition:background-color var(--motion-micro) ease,color var(--motion-micro) ease,opacity var(--motion-micro) ease,transform var(--motion-micro) var(--motion-ease)}
-.action:hover,.action:focus-visible,.agency-footer button:hover,.agency-footer button:focus-visible{opacity:.88}
+.action,.video-card,.agency-footer :is(button,.agency-site-link),.concept-grid button,.gallery-thumbnails>button{transition:background-color var(--motion-micro) ease,color var(--motion-micro) ease,opacity var(--motion-micro) ease,transform var(--motion-micro) var(--motion-ease)}
+.action:hover,.action:focus-visible,.agency-footer :is(button,.agency-site-link):hover,.agency-footer :is(button,.agency-site-link):focus-visible{opacity:.88}
 .concept-grid button:hover,.concept-grid button:focus-visible{transform:translateY(-2px)}
 .header-link,.manager-links a,.contact-links a,.dialog-close{transition:opacity var(--motion-micro) ease}
-.site-header .header-link>span,.site-header nav a{transition:text-decoration-color var(--motion-micro) ease; text-decoration-line:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px}
+.site-header .header-link,.site-header nav a,.site-header .menu-toggle{transition:color var(--motion-micro) ease}
+.site-header .header-link>span,.site-header nav a{text-decoration:none}
 .manager-links a:hover,.contact-links a:hover,.dialog-close:hover{opacity:.7}
 .faq-accordion summary h3{transition:opacity var(--motion-micro) ease}
 .faq-accordion summary:hover h3{opacity:.8}
@@ -29,6 +38,20 @@
 .plot-card.motion-visible .plot-fill{animation:plot-fill-arrive 600ms ease calc(var(--reveal-delay,0ms) + 1600ms) both}
 @keyframes plot-outline-draw{to{stroke-dashoffset:0}}
 @keyframes plot-fill-arrive{from{fill-opacity:0}to{fill-opacity:1}}
+.plot-card.motion-target .plot-visual .asset-note{opacity:0}
+.plot-card.motion-visible .plot-visual .asset-note{animation:plot-label-arrive 450ms var(--motion-ease) calc(var(--reveal-delay,0ms) + 2700ms) both}
+@keyframes plot-label-arrive{from{opacity:0;scale:.94}to{opacity:1;scale:1}}
+@media(prefers-reduced-motion:reduce){.plot-card .plot-visual .asset-note{opacity:1;animation:none!important}}
 @media(prefers-reduced-motion:reduce){.plot-card.plot-card .plot-stroke{animation:none;stroke-dasharray:none;stroke-dashoffset:0}.plot-card.plot-card .plot-fill{animation:none;fill-opacity:1}}
 @media(max-width:1119px){:root{--motion-reveal:560ms;--motion-distance:16px}.motion-target.motion-art{--motion-reveal:800ms}}
 @media(prefers-reduced-motion:reduce){.motion-target,.motion-target:not(.motion-visible),.motion-target.motion-art:not(.motion-visible){opacity:1;transform:none;transition:none}.source-art .location-pulse-ring,.source-art .location-pulse-dot,.dialog[open]{animation:none}}
+
+/* Decorative grove marks, clipped to the unchanged parcel silhouette. */
+.plot-flora{color:var(--color-accent);pointer-events:none}
+.housing .plot-flora{color:var(--color-plot-outline,#688994)}
+.plot-card.motion-target .flora-item{opacity:0}
+.plot-card.motion-visible .flora-item{animation:plot-flora-appear 700ms ease var(--flora-delay) both}
+@keyframes plot-flora-appear{from{opacity:0}to{opacity:.75}}
+.plot-dot-pattern{opacity:.65}
+@media(max-width:650px){.plot-flora{--flora-delay:1100ms}}
+@media(prefers-reduced-motion:reduce){.plot-card .flora-item{opacity:.75;animation:none!important}.plot-card .plot-sapling,.plot-card .plot-seed{animation:none!important}}

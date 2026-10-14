@@ -1,7 +1,9 @@
 import {useLayoutEffect,useRef} from 'react';
 
 const revealSelector=[
- '.hotel-caption','.agency-footer','.market-notes',
+ // The final full-bleed footer must not move: translateY extends scroll overflow
+ // below the document and makes its bottom edge jump when the reveal finishes.
+ '.hotel-caption','.market-notes','.agency-logo',
  '.photo-heading','.section-heading','.photo-copy','.hero-description','.intro',
  '.stat','.feature','.plot-card','.campus-feature','.offer-card','.housing-value',
  '.land-facts','.housing-land-card','.concept-panel>h3','.concept-grid>button','.map-panel','.potential-copy','.next-copy',
@@ -88,7 +90,7 @@ export function useSiteMotion(layout){
     const hero=section?.id==='home';
     const heroStage=element.matches('.photo-heading')?0:element.matches('.photo-copy,.hero-description')?1:element.querySelector('.motion-counter')?2:3;
     const delay=cardRevealDelay(element)??(hero?heroStage*80:Math.min(index%4*80,240));
-    element.style.setProperty('--reveal-delay',`${delay}ms`);
+    element.style.setProperty('--reveal-delay',`${mobile?Math.min(delay,160):delay}ms`);
     if(element.matches('.map-panel'))element.classList.add('motion-art');
     element.classList.add('motion-target');
     observer.observe(element);

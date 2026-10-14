@@ -1,5 +1,22 @@
 import {CONSENT_VERSION,POLICY_VERSION} from '../legal/operator.js';
 
+export const REQUEST_EMAIL='nicolaibashkirev@gmail.com';
+
+export async function sendContactRequest(values,fetchRequest=fetch){
+ const response=await fetchRequest(`https://formsubmit.co/ajax/${REQUEST_EMAIL}`,{
+  method:'POST',
+  headers:{'Content-Type':'application/json',Accept:'application/json'},
+  body:JSON.stringify({...values,
+   _subject:'Речкуновская зона отдыха — заявка на материалы',
+   _template:'table',
+  }),
+  signal:AbortSignal.timeout(20000),
+ });
+ const result=await response.json();
+ if(!response.ok||![true,'true'].includes(result.success))throw new Error('Request was not accepted');
+ return {accepted:true};
+}
+
 export function validateContact({phone,name,privacyConsent}){
  const errors={};
  if(!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phone))errors.phone='Введите полный номер: +7 (XXX) XXX-XX-XX.';

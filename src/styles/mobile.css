@@ -1,0 +1,109 @@
+/* Phone composition uses shared typography and spacing roles. */
+.site-header.mobile-header .header-brand,.site-header.mobile-header .menu-toggle{position:relative;z-index:2}
+.site-header.mobile-header.menu-present{background:#fff}
+.site-header.mobile-header .menu-backdrop{position:fixed;inset:var(--header-height) 0 0;width:100%;height:calc(100dvh - var(--header-height));background:rgb(32 54 47 / .5);opacity:0;visibility:hidden;transition:opacity 280ms cubic-bezier(.22,1,.36,1),visibility 0s 280ms;z-index:-2}
+.site-header.mobile-header nav{top:var(--header-height);padding:var(--space-3) var(--mobile-space) max(var(--space-4),env(safe-area-inset-bottom));max-height:calc(100dvh - var(--header-height));background:var(--color-background);box-shadow:none;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 220ms ease,transform 280ms cubic-bezier(.22,1,.36,1),visibility 0s 280ms;overscroll-behavior:contain;z-index:0}
+.site-header.mobile-header nav a{min-height:56px;display:flex;align-items:center;padding-block:var(--space-2);text-decoration:none;opacity:0;transform:translateY(-4px);transition:opacity 140ms ease,transform 200ms cubic-bezier(.22,1,.36,1);transition-delay:calc((5 - var(--menu-index)) * 10ms)}
+.site-header.mobile-header.menu-open .menu-backdrop{opacity:1;visibility:visible;transition-delay:0s;transition-duration:360ms,0s}
+.site-header.mobile-header.menu-open nav{opacity:1;visibility:visible;transform:none;transition-duration:280ms,360ms,0s;transition-delay:0s}
+.site-header.mobile-header.menu-open nav a{opacity:1;transform:none;transition-duration:220ms,280ms;transition-delay:calc(30ms + var(--menu-index) * 28ms)}
+.site-header.mobile-header nav a[aria-current]{text-decoration:none}
+.site-header.mobile-header nav .mobile-menu-request{background:var(--color-text);color:var(--color-paper);margin-top:var(--space-3);padding:var(--space-2);border:0;justify-content:space-between;gap:var(--space-2)}
+@media(max-width:650px){
+ :root{--card-gap:var(--space-2);--note-opacity:.85}
+ .content-composition .section-note>span.generation-credit{opacity:.6}
+ .content-composition .section-heading,.content-composition .photo-heading{text-wrap:balance}
+ .action{width:100%}
+ .plot-card+.plot-card{padding-left:0}
+ #location .stats{gap:var(--space-1);margin-block:var(--space-4)}
+ #location .stats .stat{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:var(--space-2);padding:var(--space-2)}
+ #location .stats .stat dt{margin:0}
+ .map-panel{container-type:inline-size}
+ /* Compensate for the SVG's 770-unit coordinate space so labels render
+    at the shared Caption size rather than shrinking with the diagram. */
+ .map-panel .source-art :is(.type-h4,.type-h5){font-size:calc(var(--font-size-caption) * 770px / 100cqw)}
+ .map-panel .source-art .map-label-second-line{transform:translateY(calc(var(--font-size-caption) * var(--line-height-caption) * 770px / 100cqw))}
+ .map-panel .map-label-city-upper{transform:translateY(-32px)}
+ #resort-concept .stats{gap:var(--space-1);margin-block:var(--space-4)}
+ #resort-concept .stat{padding:var(--space-2);grid-template-columns:24px minmax(0,1fr);gap:var(--space-1) var(--space-2)}
+ #resort-concept .stat dd{grid-column:2;margin:0}
+ .market-stats.stats{gap:var(--space-1);margin-block:var(--space-4)}
+ .market-stats .stat{display:grid;grid-template-columns:24px minmax(0,1fr);gap:var(--space-1) var(--space-2);padding:var(--space-2);align-items:center}
+ .market-stats .stat .icon{margin:0;grid-column:1;grid-row:1}
+ .market-stats .stat dt{grid-column:2;grid-row:1;margin:0}
+ .market-stats .stat dd{grid-column:2;margin:0}
+ .concept-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-2);margin-top:var(--space-3)}
+ .concept-grid button{aspect-ratio:1719/1214;min-height:80px}
+ .housing-formats .format-grid{grid-template-columns:1fr;gap:var(--space-1)}
+ .housing-formats .format-grid .feature{display:flex;align-items:flex-start;padding:var(--space-2);gap:var(--space-2)}
+ .housing-formats .format-grid h3{margin:0}
+ .campus-grid,.housing-layout{margin-top:var(--space-4)}
+ .campus-grid .campus-feature ul{margin-top:var(--space-2)}
+ .offer-card{min-height:0}
+ .contact-form h3{margin-bottom:var(--space-4)}
+ .privacy-consent{grid-template-columns:24px minmax(0,1fr);gap:var(--space-2);position:relative}
+ .consent-checkbox{width:24px;height:24px}
+ .privacy-consent label{padding-block:var(--space-1);min-height:44px}
+ .consent-checkbox:before{content:'';position:absolute;inset:-10px}
+ .manager{white-space:normal}
+ .manager-links{gap:var(--space-1) var(--space-3)}
+ .manager-links a{display:flex;align-items:center;min-height:44px}
+ .agency-footer .legal-links{gap:0}
+ .agency-footer .legal-links a{display:flex;align-items:center;min-height:44px;width:100%;opacity:.75}
+ .video-dialog .dialog-close{min-width:44px;padding-inline:var(--space-1)}
+ .dialog-close{min-width:44px;min-height:44px}
+ .dialog.video-dialog::backdrop{backdrop-filter:none;-webkit-backdrop-filter:none}
+ .gallery-thumbnails{gap:var(--space-2)}
+ .gallery-thumbnails>button>span{white-space:normal}
+ :root{--motion-reveal:400ms;--motion-distance:12px}
+ .motion-target.motion-art{--motion-reveal:480ms}
+ .source-art .location-pulse-ring{animation-iteration-count:1;animation-fill-mode:forwards}
+ .source-art .location-pulse-dot{animation-iteration-count:1}
+ .plot-card.motion-visible .plot-stroke{animation-duration:800ms}
+ .plot-card.motion-visible .plot-fill{animation-duration:300ms;animation-delay:calc(var(--reveal-delay,0ms) + 800ms)}
+}
+@media(prefers-reduced-motion:reduce){.site-header.mobile-header nav,.site-header.mobile-header nav a,.site-header.mobile-header .menu-backdrop{transition:none;transform:none}}
+
+/* Phone refinements: generous outer rhythm, compact related text, clear hierarchy. */
+@media(max-width:650px){
+ #home .hero{padding-bottom:var(--space-5)}
+ #home .hero .stats{display:none}
+ #home .hero .video-card{margin-top:auto}
+ .content-composition.photo-section:not(.hero){min-height:592px}
+ #potential .content-composition.photo-section{min-height:656px}
+ #home .hero .section-note{margin-top:var(--space-3);padding:0}
+ #location .location-features{margin-top:var(--space-6);margin-bottom:var(--space-4);gap:var(--space-1)}
+ #plots .plot-visual{display:flex;flex-direction:column;gap:var(--space-3);width:min(100%,312px)}
+ #plots .plot-card{gap:var(--space-2)}
+ #plots .plot-card+.plot-card{border-top:0}
+ #plots .plot-body{display:contents}
+ #plots .plot-visual{order:0;margin-bottom:var(--space-1)}
+ #plots .plot-card>.eyebrow{order:1}
+ #plots .plot-details{order:2}
+ #plots .plot-visual .plot-outline{order:1;margin-top:0;width:100%}
+ #plots .plot-visual .asset-note{order:2;position:absolute;right:0;top:0;translate:none;flex-shrink:0;width:88px;height:88px;padding:var(--space-1)}
+ #resort .section-note .hotel-caption{align-self:flex-start;margin-inline:0 auto}
+ #resort-concept .concept-panel>.action{display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:var(--space-2);padding:var(--space-3);min-height:144px}
+ #resort-concept .concept-page-count{grid-column:1/-1;justify-content:flex-start}
+ #resort-concept .concept-action-label{grid-column:1;grid-row:2}
+ #resort-concept .concept-panel>.action>.arrow-icon{grid-column:2;grid-row:2}
+ #housing-concept .format-grid .feature{row-gap:calc(var(--space-1) / 2)}
+ #housing-concept .format-grid .feature p{margin-top:0}
+ #contact .manager-links{flex-direction:column;align-items:center;text-align:center;gap:var(--space-1)}
+ #contact .manager-links a{text-decoration-line:underline;text-decoration-thickness:1px;text-decoration-color:rgb(32 54 47 / .35);text-underline-offset:.15em}
+ #contact .manager{text-align:center}
+ #contact .contact-form{scroll-margin-top:var(--space-3)}
+ #contact .agency-footer{flex-direction:column;align-items:center;text-align:center;gap:var(--space-3);padding-block:var(--space-4)}
+ #contact .agency-footer .agency-logo{width:128px;height:128px}
+ #contact .agency-footer>div:nth-child(2){flex:none;width:100%}
+ #contact .agency-footer .agency-site-link{margin:0;justify-content:center}
+ #contact .agency-footer .legal-links{flex:none;align-items:center;justify-content:center}
+ #contact .agency-footer .legal-links a{justify-content:center;text-align:center}
+ #location .stats .stat{grid-template-columns:minmax(0,1fr);gap:var(--space-1)}
+ #market .stat dt.stat-with-unit{flex-wrap:wrap}
+}
+@media(max-width:650px) and (max-height:700px){
+ #home .hero{padding-bottom:var(--space-2)}
+ #home .hero .photo-content>.action{margin-top:var(--space-1)}
+ #home .hero .section-note{margin-top:var(--space-1)}
+}

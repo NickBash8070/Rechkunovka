@@ -1,35 +1,9 @@
 /* Shared readable captions and secondary labels at every viewport. */
-:root{--text-small:14px;--tracking-caption:.06em;--note-opacity:.45}
-.content-composition .section-note .generation-credit{font-size:12px}
+:root{--note-opacity:.45}
 .content-composition .section-note>span,
 .content-composition .asset-note,
 .content-composition .potential-copy small,
 .content-composition .hotel-caption>p.source-credit,
 .content-composition .housing-land-card .small-label,
 .content-composition .market-notes{opacity:var(--note-opacity)}
-#housing-concept .section-note>span{font-size:12px}
-#offers .section-note>span{font-size:12px}
-#next-step .section-note>span{font-size:12px}
-.content-composition .section-note,.content-composition .section-note span,
-.content-composition .asset-note,.content-composition .eyebrow,
-.content-composition .offer-card .eyebrow,.content-composition .field-label,
-.content-composition .land-label,.content-composition .potential-copy small,
-.content-composition .concept-panel .action small,
-.content-composition .video-card>small{
- font-size:var(--text-small);line-height:1.55;letter-spacing:var(--tracking-caption);
-}
 .content-composition .section-note{flex-wrap:wrap}
-.content-composition .nature-features p,.content-composition .hotel-caption>p,
-.content-composition .photo-caption .feature p{
- font-size:var(--text-small);line-height:1.45;letter-spacing:.04em;
-}
-.content-composition.hero .stat dd,.content-composition.hero .video-card>span{font-size:var(--text-small);line-height:1.45;letter-spacing:.04em}
-.content-composition .agency-footer p+p,.content-composition .agency-footer small,
-.content-composition .agency-footer button,.dialog .dialog-close,.dialog .form-status,
-.gallery-thumbnails>button>span{
- font-size:var(--text-small);line-height:1.5;letter-spacing:.04em;
-}
-.content-composition .section-note .source-credit,
-.content-composition .section-note .investment-credit,
-.content-composition .asset-note.source-credit,
-.content-composition .hotel-caption>p.source-credit{font-size:12px}

@@ -1,9 +1,76 @@
-:root{--icon-stroke:2px}
+:root{--icon-stroke:2px;--icon-size:32px;--icon-size-small:24px;--icon-optical-y:-1px}
+.semantic-icon{color:var(--color-accent)}
+.photo-section .semantic-icon{color:var(--color-paper)}
+.next-step-copy{display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);column-gap:var(--space-2);align-items:start}
+.content-composition .next-step-copy>.icon{align-self:start;margin-top:max(0px,calc((1lh - var(--icon-size)) / 2))}
+@media(max-width:650px){.next-step-copy{--icon-size:var(--icon-size-small)}}
+/* Every source icon has a square viewBox centered on its actual paths. */
+.source-art.icon{width:var(--icon-size);height:var(--icon-size);flex:0 0 var(--icon-size);display:grid;place-items:center;position:static;align-self:center;transform:translateY(var(--icon-optical-y))}
+.source-art.icon svg{display:block;position:static;width:100%;height:100%;max-width:100%;overflow:visible}
 .source-art:is(.icon,.play-icon) [stroke]{stroke-width:var(--icon-stroke);vector-effect:non-scaling-stroke}
-/* The wide people artwork needs a larger canvas to match the taller KPI icons. */
-.market-stats .icon[data-art="people"]{position:relative}
-.market-stats .icon[data-art="people"] svg{position:absolute;width:40px;height:40px;left:-1px;top:-2.5px;max-width:none}
-.housing-formats .format-grid .icon:is([data-art="spa"],[data-art="people"]){position:relative}
-.housing-formats .format-grid .icon:is([data-art="spa"],[data-art="people"]) svg{position:absolute;left:-2px;top:-2px;max-width:none}
-.housing-formats .format-grid .icon[data-art="spa"] svg{width:32px;height:36px}
-.housing-formats .format-grid .icon[data-art="people"] svg{width:36px;height:36px}
+.content-composition .feature:has(>.icon){display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);align-items:center;column-gap:var(--space-2)}
+.content-composition .feature>.icon{width:var(--icon-size);height:var(--icon-size);margin:0;transform:translateY(var(--icon-optical-y))}
+.content-composition .feature>div:not(.source-art){grid-column:2;min-width:0}
+:is(#resort-concept,#market) .stats .stat{display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);align-items:center;align-content:start;column-gap:var(--space-2);row-gap:var(--space-1)}
+:is(#resort-concept,#market) .stats .stat>.icon{grid-column:1;grid-row:1;align-self:center;width:var(--icon-size);height:var(--icon-size);margin:0;top:auto;transform:translateY(var(--icon-optical-y))}
+:is(#resort-concept,#market) .stats .stat dt{grid-column:2;grid-row:1;margin:0}
+:is(#resort-concept,#market) .stats .stat dd{grid-column:2;grid-row:2;margin:0}
+.hotel-caption-row .icon{width:var(--icon-size);height:var(--icon-size);transform:translateY(var(--icon-optical-y))}
+/* Nimbus's visible letters sit slightly above the line-box center. */
+.arrow-icon{transform:translateY(-2px)}
+.header-desktop .header-request .arrow-icon{top:0}
+.faq-toggle{transform:translateY(-1px)}
+.gallery-play svg{display:block}
+@media(min-width:1120px){
+ .hero .stats .stat{grid-template-columns:var(--icon-size) minmax(0,1fr);row-gap:var(--space-1);align-items:center}
+ .hero .stats .stat>.icon{grid-column:1;grid-row:1;align-self:center;width:var(--icon-size);height:var(--icon-size);margin:0;transform:translateY(var(--icon-optical-y))}
+ .hero .stats .stat dt{grid-column:2;grid-row:1}
+ .hero .stats .stat dd{grid-column:2;grid-row:2;margin:0}
+}
+@supports(text-box-trim:trim-both){
+ .hotel-caption-row .type-h4{text-box-trim:trim-both;text-box-edge:cap alphabetic}
+}
+@media(max-width:650px){
+ :is(#resort-concept,#market) .stats{--icon-size:var(--icon-size-small)}
+ .hero .stat>.icon{--icon-size:var(--icon-size-small);width:var(--icon-size);height:var(--icon-size);transform:none}
+ .content-composition .housing-formats .format-grid .feature{align-items:center}
+}
+
+
+/* KPI numbers stand above a compact icon + caption row. */
+:is(#resort-concept,#market) .stats .stat{row-gap:0}
+:is(#resort-concept,#market) .stats .stat dt{grid-column:1/-1;grid-row:1;margin:0}
+:is(#resort-concept,#market) .stats .stat>.icon{grid-column:1;grid-row:2;align-self:start;margin-top:2px}
+:is(#resort-concept,#market) .stats .stat dd{grid-column:2;grid-row:2;margin:0}
+@media(min-width:1120px){
+ .hero .stats .stat{row-gap:0}
+ .hero .stats .stat dt{grid-column:1/-1;grid-row:1;margin:0}
+ .hero .stats .stat>.icon{grid-column:1;grid-row:2;align-self:start;margin-top:2px}
+ .hero .stats .stat dd{grid-column:2;grid-row:2;margin:0}
+}
+/* Feature icons align with their heading, excluding the supporting copy. */
+.content-composition .feature:has(>.icon){align-items:start;row-gap:var(--space-1)}
+.content-composition .feature:has(>.icon)>div:not(.source-art){display:contents}
+.content-composition .feature:has(>.icon) h3{grid-column:2;grid-row:1;margin:0}
+.content-composition .feature:has(>.icon) p{grid-column:2;grid-row:2;margin:0}
+.content-composition .feature>.icon{grid-column:1;grid-row:1;align-self:center}
+@media(max-width:650px){.content-composition .housing-formats .format-grid .feature{align-items:start}}
+
+/* The same number / icon-caption order also applies to the opening KPIs. */
+.hero .stats .stat{display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);column-gap:var(--space-1);row-gap:0;align-items:start}
+.hero .stats .stat dt{grid-column:1/-1;grid-row:1;margin:0}
+.hero .stats .stat>.icon{grid-column:1;grid-row:2;align-self:start;margin:2px 0 0;transform:translateY(var(--icon-optical-y))}
+.hero .stats .stat dd{grid-column:2;grid-row:2;margin:0}
+.hero .stats .stat>.icon,.hero .stats .stat dd{align-self:center}
+.hero .stats .stat>.icon{margin:0;transform:translateY(var(--icon-optical-y))}
+@media(max-width:650px){.hero .stats{--icon-size:var(--icon-size-small)}}
+@media(max-width:650px){
+ #home .hero .stats .stat>.icon{display:none}
+ #home .hero .stats .stat dd{grid-row:2;grid-column:1/-1}
+}
+.content-composition .feature:has(>.icon) h3{align-self:center}
+@media(max-width:650px){
+ .hero .stats .stat{row-gap:4px}
+ .hero .stats .stat>.icon{grid-column:1/-1;grid-row:2;margin:0}
+ .hero .stats .stat dd{grid-column:1/-1;grid-row:3}
+}

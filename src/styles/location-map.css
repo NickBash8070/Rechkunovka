@@ -1,0 +1,96 @@
+.map-panel.location-map{position:relative;container:location-map / inline-size;aspect-ratio:auto;border:0;overflow:visible;margin-inline:0;min-width:0;--map-paper:#E8E7D9;--map-green:#154334;--map-ink:#4F5953}
+.location-map-frame{position:relative;isolation:isolate;width:100%;aspect-ratio:1;min-height:440px;background:var(--map-paper);border:0;border-radius:6px;overflow:hidden}
+.geographic-map{position:absolute;inset:0;overflow:hidden;background:var(--map-paper)}
+.geographic-map .location-map-canvas{position:absolute;inset:0;opacity:0;transition:opacity 650ms ease;background:var(--map-paper)}
+.geographic-map .maplibregl-map{font-family:var(--font-body)}
+.geographic-map[data-ready=true] .location-map-canvas{opacity:1}
+.location-map-canvas canvas:focus-visible{outline:2px solid var(--map-green);outline-offset:-3px}
+.location-map-canvas .maplibregl-cooperative-gestures-screen{background:rgb(232 231 217 / .85);color:var(--map-green);font-family:var(--font-body);font-size:var(--font-size-ui);line-height:var(--line-height-ui)}
+.location-map-overlay{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.geo-position{position:absolute;left:0;top:0;transform:translate3d(var(--marker-x,0px),var(--marker-y,0px),0);--marker-anchor:14px}
+.geo-position[hidden]{display:none}
+.geo-marker{position:absolute;top:0;left:0;translate:calc(-1 * var(--marker-anchor)) -50%;display:flex;align-items:center;min-height:44px;padding:0;color:var(--map-ink);background:transparent;white-space:nowrap;text-transform:none;pointer-events:auto}
+.geo-position[data-side=left] .geo-marker{translate:calc(-100% + var(--marker-anchor)) -50%}
+.marker-surface{display:flex;align-items:center;gap:8px;padding:6px 11px;border:1px solid rgb(21 67 52 / .2);border-radius:30px;background:rgb(242 241 231 / .82);transition:transform 200ms ease,background-color 200ms ease,border-color 200ms ease;transform-origin:14px center}
+.geo-position[data-side=left] .marker-surface{flex-direction:row-reverse;transform-origin:calc(100% - 14px) center}
+.city-anchor{width:5px;height:5px;flex:none;border-radius:50%;background:#65766B}
+.city-marker .marker-surface{height:30px;opacity:.9}
+.city-marker:hover .marker-surface,.city-marker:focus-visible .marker-surface{transform:scale(1.045);opacity:1;border-color:rgb(21 67 52 / .45);background:#F2F1E7}
+.project-position{--marker-anchor:24px;z-index:3}
+.main-project-marker{min-height:48px;color:#F2F1E7}
+.main-project-marker .marker-surface{min-height:48px;padding:4px 18px;gap:12px;border-color:var(--map-green);background:var(--map-green);transform-origin:24px center;letter-spacing:.02em}
+.project-position[data-side=left] .marker-surface{transform-origin:calc(100% - 24px) center}
+.main-project-marker.type-bold{font-weight:var(--font-weight-bold)}
+.project-anchor{position:relative;display:block;width:10px;height:10px;flex:none;border-radius:50%;background:#F2F1E7}
+.project-position:before{content:'';position:absolute;left:-18px;top:-18px;width:36px;height:36px;border:1px solid var(--map-green);border-radius:50%;opacity:0;pointer-events:none;z-index:-1}
+.main-project-marker:hover .marker-surface,.main-project-marker:focus-visible .marker-surface{transform:scale(1.05);background:#10372B;border-color:#10372B}
+.main-project-marker[aria-pressed=true] .marker-surface{background:#10372B;border-color:#F2F1E7}
+.project-position[data-docked=true] .project-anchor:before{content:'↗';position:absolute;inset:-4px;background:var(--map-green);font-size:var(--font-size-ui);line-height:18px}
+.geo-marker:focus-visible{outline:2px solid var(--map-green);outline-offset:3px;border-radius:30px}
+.main-project-marker:focus-visible{outline-offset:4px}
+.infrastructure-marker .marker-surface{border:0;background:transparent;opacity:.75;padding:4px;color:#6C716E}
+.map-zoom-controls{position:absolute;right:16px;top:16px;z-index:4;display:flex;flex-direction:column;gap:2px}
+.map-zoom-controls button{display:grid;place-items:center;width:44px;height:44px;padding:0;background:rgb(242 241 231 / .9);color:var(--map-green);transition:background-color 180ms ease}
+.map-zoom-controls button:hover{background:#F2F1E7}
+.map-zoom-controls button:disabled{opacity:.35;cursor:default}
+.map-zoom-controls button:focus-visible{outline-offset:-3px}
+.map-zoom-symbol{position:relative;display:block;width:14px;height:14px}
+.map-zoom-symbol:before,.map-zoom-symbol.plus:after{content:'';position:absolute;background:currentColor}
+.map-zoom-symbol:before{left:0;top:6px;width:14px;height:2px}
+.map-zoom-symbol.plus:after{left:6px;top:0;width:2px;height:14px}
+.location-map-credit{position:absolute;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:4px;max-width:100%;padding:0 8px;color:#585F5A;background:rgb(232 231 217 / .93);letter-spacing:var(--tracking-small)}
+.location-map-credit a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-underline-offset:2px}
+.location-map-credit a:focus-visible{outline-offset:-3px}
+.location-map-credit a:hover{text-decoration:underline}
+.map-loading{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:4;display:grid;gap:8px;max-width:calc(100% - 32px);padding:16px;text-align:center;background:#F2F1E7;color:var(--map-green)}
+.map-loading button{min-height:44px;padding:8px 16px;background:var(--map-green);color:#F2F1E7;text-transform:none}
+.location-map:not([data-entered=true]) .geo-position,.geographic-map:not([data-ready=true]) .geo-position{visibility:hidden}
+.location-map[data-motion=true][data-entered=true] .geographic-map[data-ready=true] .project-position .marker-surface{animation:project-marker-enter 500ms var(--motion-ease) 100ms backwards}
+.location-map[data-motion=true][data-entered=true] .geographic-map[data-ready=true] .city-position .marker-surface{animation:city-marker-enter 450ms var(--motion-ease) var(--marker-delay) backwards}
+.location-map[data-motion=true] .geographic-map[data-ready=true] .project-position:before{animation:project-anchor-pulse 2800ms ease-out 650ms infinite}
+.location-map[data-active=false] .project-position:before{animation-play-state:paused!important}
+@keyframes project-marker-enter{from{opacity:0;scale:.9}to{opacity:1;scale:1}}
+@keyframes city-marker-enter{from{opacity:0;translate:0 5px}to{opacity:.9;translate:0 0}}
+@keyframes project-anchor-pulse{from{opacity:.35;transform:scale(1)}to{opacity:0;transform:scale(1.8)}}
+@container location-map (max-width:480px){
+ .main-project-marker{--type-size:var(--font-size-h5);--type-leading:var(--line-height-h5)}
+ .main-project-marker .marker-surface{padding-inline:18px;gap:10px}
+ .map-zoom-controls{right:12px;top:12px}
+ .location-map-credit{padding-inline:6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .location-map .marker-surface,.location-map .project-position:before{animation:none!important;transition:none;scale:1;translate:none}
+ .location-map-canvas{transition:none}
+ .geo-marker:hover .marker-surface{transform:none}
+}
+
+/* Rounded speech markers: the lower tip identifies the geographic anchor. */
+.geo-position:after{content:'';position:absolute;left:0;top:0;width:var(--leader-length,0px);height:1px;background:rgb(21 67 52 / .35);transform:rotate(var(--leader-angle,0rad));transform-origin:left center;z-index:-1;pointer-events:none}
+.geo-marker,.geo-position[data-side=left] .geo-marker{translate:-50% calc(-100% - 10px)}
+.marker-surface,.geo-position[data-side=left] .marker-surface{position:relative;justify-content:center;flex-direction:row;padding:10px 18px;border:0;background:#F2F1E7;transform-origin:center bottom;text-align:center;opacity:1}
+.marker-surface:after{content:'';position:absolute;left:50%;top:calc(100% - 1px);translate:-50% 0;width:22px;height:11px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%);display:block}
+.city-marker .marker-surface{height:44px;opacity:1}
+.main-project-marker .marker-surface,.project-position[data-side=left] .marker-surface{min-height:72px;padding:10px 22px;gap:0;transform-origin:center bottom;letter-spacing:normal;max-width:calc(100cqw - 24px)}
+.project-position[data-docked=true] .marker-surface:before{content:'↗';position:absolute;right:10px;top:8px;font-size:var(--font-size-ui);line-height:1}
+.project-position:before{top:-18px}
+.geo-marker .marker-surface,.geo-marker:focus-visible{border-radius:6px}
+.main-project-marker .marker-surface{gap:16px;padding-inline:24px;min-width:300px;min-height:0;text-align:left;font-weight:var(--font-weight-regular)}
+.main-project-marker .icon{color:#F2F1E7;--icon-size:calc(2 * var(--font-size-h5) * var(--line-height-h5));flex:none;filter:brightness(0) invert(1)}
+.main-project-marker .icon path{stroke-width:var(--icon-stroke);vector-effect:non-scaling-stroke}
+@container location-map (max-width:480px){
+ .main-project-marker .marker-surface{min-width:min(252px,calc(100cqw - 24px));min-height:0;padding-inline:18px;gap:12px}
+}
+@keyframes city-marker-enter{from{opacity:0;translate:0 5px}to{opacity:1;translate:0 0}}
+
+/* Animate only the icon geometry; the label and geographic anchor remain steady. */
+.map-waterside-icon .map-icon-sun{animation:map-sun-rise 4800ms ease-in-out infinite}
+.map-waterside-icon .map-icon-rays{animation:map-sun-rays 4800ms ease-in-out infinite;transform-origin:16px 16px}
+.map-waterside-icon .map-icon-wave{animation:map-wave-drift 3200ms ease-in-out infinite}
+.map-waterside-icon .map-icon-wave-second{animation-delay:-1600ms}
+.location-map:not([data-active=true]) .map-waterside-icon :is(g,path),
+.location-map:not([data-motion=true]) .map-waterside-icon :is(g,path),
+.main-project-marker:disabled .map-waterside-icon :is(g,path){animation-play-state:paused}
+@keyframes map-sun-rise{0%,100%{transform:translateY(0)}50%{transform:translateY(-1px)}}
+@keyframes map-sun-rays{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.65;transform:scale(.93)}}
+@keyframes map-wave-drift{0%,100%{transform:translateX(-1px)}50%{transform:translateX(1px)}}
+@media(prefers-reduced-motion:reduce){.map-waterside-icon :is(g,path){animation:none!important}}

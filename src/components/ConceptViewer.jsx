@@ -22,6 +22,6 @@ export function ConceptViewer({name,onChange}){
   <button type="button" className="concept-navigation previous" aria-label="Предыдущее изображение" onClick={()=>move(-1)}><ArrowIcon direction="left"/></button>
   <ConceptImage key={name} name={name} full/>
   <button type="button" className="concept-navigation next" aria-label="Следующее изображение" onClick={()=>move(1)}><ArrowIcon/></button>
-  <span className="sr-only" role="status" aria-live="polite">Изображение {index+1} из {names.length}</span>
+  <span className="sr-only type-ui" role="status" aria-live="polite">Изображение {index+1} из {names.length}</span>
  </div>;
 }

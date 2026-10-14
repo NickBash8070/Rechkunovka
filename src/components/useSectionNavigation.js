@@ -1,35 +1,45 @@
 import {useEffect} from 'react';
 
 let cancelCurrent=()=>{};
-export function scrollToSection(id,{animate=true,history=true,focus=true}={}){
- const section=document.getElementById(id);
+export function scrollToSection(id,{animate=true,history=true,focus=true,onComplete,onCancel}={}){
+ const phoneContact=id==='contact'&&matchMedia('(max-width: 650px)').matches;
+ const section=(phoneContact&&document.getElementById('contact-request-form'))||document.getElementById(id);
  if(!section)return;
  cancelCurrent();
+ if(phoneContact)window.dispatchEvent(new Event('site:phone-contact-navigation'));
  if(history && location.hash!==`#${id}`)window.history.pushState(null,'',`#${id}`);
- const header=document.querySelector('.site-header');
- const offset=id==='home'?0:header?.getBoundingClientRect().height || 60;
- const target=Math.max(0,Math.min(section.getBoundingClientRect().top+window.scrollY-offset,document.documentElement.scrollHeight-window.innerHeight));
+ const inset=phoneContact?parseFloat(getComputedStyle(section).scrollMarginTop)||0:0;
+ const layoutTop=()=>{
+  if(!phoneContact)return section.getBoundingClientRect().top+window.scrollY;
+  // The contact panel's reveal transform must not shift the anchor destination.
+  let top=0;for(let element=section;element;element=element.offsetParent)top+=element.offsetTop;
+  return top;
+ };
+ const destination=()=>Math.max(0,Math.min(Math.ceil(layoutTop()-inset),document.documentElement.scrollHeight-window.innerHeight));
+ const target=destination();
  const start=window.scrollY,distance=target-start;
  const finish=()=>{
   if(focus){section.tabIndex=-1;section.focus({preventScroll:true});}
+  onComplete?.();
  };
  if(!animate || matchMedia('(prefers-reduced-motion: reduce)').matches || Math.abs(distance)<1){window.scrollTo({top:target,behavior:'instant'});finish();return;}
  const duration=Math.min(1100,450+Math.sqrt(Math.abs(distance))*5);
  let frame,started;
- const interrupt=()=>{
+ const interrupt=(notify=true)=>{
   cancelAnimationFrame(frame);
   window.removeEventListener('wheel',interrupt);
   window.removeEventListener('touchstart',interrupt);
   window.removeEventListener('keydown',keyInterrupt);
   cancelCurrent=()=>{};
+  if(notify)onCancel?.();
  };
  const keyInterrupt=event=>{if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(event.key))interrupt();};
  const step=time=>{
   started??=time;
   const t=Math.min(1,(time-started)/duration);
   const eased=t*t*t*(t*(t*6-15)+10);
-  window.scrollTo({top:start+distance*eased,behavior:'instant'});
-  if(t<1)frame=requestAnimationFrame(step);else{interrupt();finish();}
+  window.scrollTo({top:start+(destination()-start)*eased,behavior:'instant'});
+  if(t<1)frame=requestAnimationFrame(step);else{interrupt(false);finish();}
  };
  cancelCurrent=interrupt;
  window.addEventListener('wheel',interrupt,{passive:true});

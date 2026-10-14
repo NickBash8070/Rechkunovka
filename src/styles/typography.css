@@ -1,0 +1,88 @@
+/* Assign visual roles independently of semantic HTML tags.
+   Inline children inherit the explicit role of their text block. */
+:root{
+ --font-size-h1:clamp(27px,calc(7vw + 4.6px),145px);
+ --font-size-h2:clamp(24px,calc(4vw + 11.2px),90px);
+ --font-size-h3:clamp(20px,calc(1.55vw + 15.04px),44px);
+ --font-size-h4:clamp(18px,calc(1.07vw + 14.576px),32px);
+ --font-size-h5:clamp(17px,calc(.78vw + 14.504px),28px);
+ --font-size-body:clamp(16px,calc(.62vw + 14.016px),24px);
+ --line-height-h1:1.02;--line-height-h2:1.1;--line-height-h3:1.16;
+ --line-height-h4:1.22;--line-height-h5:1.28;--line-height-body:1.5;
+ --font-weight-regular:400;--font-weight-bold:700;
+ --tracking-body:normal;--tracking-small:.02em;--tracking-label:.08em;--tracking-ui:.06em;
+ /* Shared service roles retained from the approved system. */
+ --font-size-caption:12px;--font-size-ui:14px;--font-size-input:16px;
+ --line-height-caption:1.5;--line-height-ui:1.4;
+}
+.type-h1{--type-size:var(--font-size-h1);--type-leading:var(--line-height-h1)}
+.type-h2{--type-size:var(--font-size-h2);--type-leading:var(--line-height-h2)}
+.type-h3{--type-size:var(--font-size-h3);--type-leading:var(--line-height-h3)}
+.type-h4{--type-size:var(--font-size-h4);--type-leading:var(--line-height-h4)}
+.type-h5{--type-size:var(--font-size-h5);--type-leading:var(--line-height-h5)}
+.main-project-marker.type-h5{--font-size-h5:23px}
+.type-body{--type-size:var(--font-size-body);--type-leading:var(--line-height-body)}
+.type-caption{--type-size:var(--font-size-caption);--type-leading:var(--line-height-caption)}
+.type-ui{--type-size:var(--font-size-ui);--type-leading:var(--line-height-ui)}
+.type-input{--type-size:var(--font-size-input);--type-leading:var(--line-height-ui)}
+.type-h1,.type-h2,.type-h3,.type-h4,.type-h5,.type-body,.type-caption,.type-ui,.type-input{
+ font-size:var(--type-size);line-height:var(--type-leading);
+ font-weight:var(--font-weight-regular);letter-spacing:var(--tracking-body);
+}
+.type-bold{font-weight:var(--font-weight-bold)}
+.type-caption,.type-ui,.type-input{letter-spacing:var(--tracking-small)}
+@media(width:1024px){
+ :root{--font-size-caption:10px}
+}
+.type-compact{--type-leading:var(--line-height-ui);letter-spacing:var(--tracking-ui)}
+.eyebrow,.field-label,.land-label,.section-note,.asset-note{letter-spacing:var(--tracking-label)}
+.header-brand{--type-leading:var(--line-height-h4)}
+@media(min-width:851px) and (max-width:853px) and (max-height:500px){
+ #home .section-note.type-caption{--type-size:10px}
+ .privacy-consent .type-caption{--type-size:16px}
+}
+@media(max-width:650px){
+ #plots .plot-details h3.type-h4{--type-size:var(--font-size-h3);--type-leading:var(--line-height-h3)}
+ :is(#location,#resort-concept,#market) .stats dt.type-h2,
+ :is(#location,#resort-concept,#market) .stat-unit.type-h2,
+ .plot-value.type-h2,.housing-value.type-h2,.offer-value.type-h2,
+ .campus-feature .feature-number.type-h2{--type-size:calc(2 * var(--font-size-h2))}
+ .concept-page-count .type-h3{--type-size:calc(2 * var(--font-size-h3))}
+ #contact .manager-links.type-h4{--type-size:var(--font-size-h2)}
+ .section-note.type-caption,.asset-note.type-caption,.market-notes.type-caption,
+ .hotel-caption .source-credit.type-caption,.housing-land-card .small-label.type-caption,
+ .potential-copy small.type-caption{--type-size:10px}
+}
+@media(min-width:819px) and (max-width:821px), (min-width:767px) and (max-width:769px){
+ .privacy-consent .type-caption{--type-size:16px}
+ .site-header .menu-toggle-label.type-ui{--type-size:22px}
+ .site-header .header-brand.type-ui{--type-size:18px}
+}
+
+/* All stand-alone quantities share the plot area heading's visual role. */
+@media(min-width:651px){
+ #location .stats{grid-template-columns:1fr}
+ #location .stats .stat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;column-gap:var(--space-3)}
+ #location .stats .stat dt{margin:0}
+}
+@media(min-width:601px){
+ #resort-concept .stats.four,.market-stats.stats.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* Compact reading pairs and the concept download strip. */
+#location .stats .stat{grid-template-columns:max-content minmax(0,1fr);column-gap:var(--space-2)}
+#location .stats .stat dd{margin:0}
+#location .stats .stat dt{translate:0 .12em}
+.concept-panel .action{padding-block:var(--space-1)}
+.concept-page-count{display:flex;align-items:center;gap:var(--space-1)}
+.concept-page-count>b{display:block;--type-leading:1}
+.concept-page-count .motion-counter{vertical-align:top}
+@supports(text-box-trim:trim-both){
+ .concept-page-count>b{ text-box-trim:trim-both;text-box-edge:cap alphabetic }
+}
+/* Two restrained statements over the water, using the site's green panels. */
+.content-composition .potential-copy{border:0;padding:0;margin-top:var(--space-3);display:grid;gap:var(--space-2);max-width:32em}
+.potential-copy p{display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);column-gap:var(--space-2);align-items:start;margin:0;padding:0;border:0;background:none}
+.potential-copy p>.icon{color:var(--color-paper);align-self:start;margin-top:max(0px,calc((1lh - var(--icon-size)) / 2))}
+.potential-copy small{margin-top:var(--space-1)}
+@media(max-width:650px){.potential-copy{--icon-size:var(--icon-size-small)}}
