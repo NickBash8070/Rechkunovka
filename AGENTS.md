@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+User-requested tablet hero video alignment correction (2026-10-15): left-align the hero video card throughout widths <=1119px, including 856px, rather than restricting alignment to individual iPad widths. Preserve all existing card dimensions, spacing and desktop grid placement. Publish this isolated correction.
+
 User-requested subtle phone agency logo zoom (2026-10-15): observe the footer logo with the shared once-per-appearance reveal mechanism. On phones <=650px, gently scale from .94 to 1 over 650ms when it enters the viewport, without opacity fades or positional movement. Preserve the 128px layout box and final size; tablet/desktop and reduced-motion users see a static logo.
 
 User-requested direct phone contact-form landing (2026-10-15): at widths <=650px route all #contact navigation, including menu Contacts and request-material CTAs, to #contact-request-form instead of the FAQ/section introduction. Align the form with a 24px top inset, focus the form without opening the keyboard, and hide the mobile header so the complete request form is immediately visible. Keep #contact URL/history and tablet/desktop section landing unchanged.
