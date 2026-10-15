@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+User-reported inverted published palette (2026-10-15): the screenshot shows cream information backgrounds and map city plaques changed to dark olive with light text, while the deployed CSS matches the intended local palette. Declare meta color-scheme=only light before styles and :root color-scheme:only light to opt out of browser Auto Dark Theme without changing brand colors or disabling accessibility forced-colors. Browser extensions may still override site styles; do not claim these declarations control extensions. Preserve all layout and media.
+
 User-requested matching phone menu CTA height (2026-10-15): at <=650px the mobile navigation's “Запросить материалы” action is 48px tall, matching shared phone CTAs, with 8px/24px padding, 24px label/arrow gap and 14px/1.4 type. Center label cap bounds and arrow using the same trimming/fallback as shared actions. Preserve menu interactions, link spacing, green/olive palette and tablet/desktop dimensions.
 
 User-requested full-width slightly taller phone hero video (2026-10-15): at <=650px keep the horizontal preview-left/text-right card, but use width/max-width:100% within content gutters, 96px preview (previously 80px), 10px card padding (previously 8px) and 74px minimum height, approximately 20% above the former ~61px card. Preserve 16px content gap, bottom placement, static photography, credit spacing, original media and tablet/desktop composition. Supersedes compact phone video width caps.
