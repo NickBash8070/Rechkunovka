@@ -10,6 +10,7 @@ export function StartupReady({children}){
   const tasks=[
    document.fonts.load('400 16px "Nimbus Sans PDF"'),
    document.fonts.load('700 16px "Nimbus Sans PDF"'),
+   document.fonts.load('400 16px "P052 PDF"'),
    ...urls.map(url=>new Promise(resolve=>{const image=new Image();image.onload=()=>{image.decode().catch(()=>{}).then(resolve);};image.onerror=resolve;image.src=url;})),
   ];
   let completed=0;

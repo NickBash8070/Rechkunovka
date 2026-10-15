@@ -1,6 +1,8 @@
 @font-face{font-family:'Nimbus Sans PDF';src:url('/fonts/nimbus-sans-regular.otf') format('opentype');font-style:normal;font-weight:400;font-display:block;ascent-override:72.9%;descent-override:27.1%;line-gap-override:0%}
 @font-face{font-family:'Nimbus Sans PDF';src:url('/fonts/nimbus-sans-bold.otf') format('opentype');font-style:normal;font-weight:700;font-display:swap;ascent-override:72.9%;descent-override:27.1%;line-gap-override:0%}
+@font-face{font-family:'P052 PDF';src:url('/fonts/p052-roman.otf') format('opentype');font-style:normal;font-weight:400;font-display:block;ascent-override:72.6%;descent-override:27.4%;line-gap-override:0%}
 :root{
+ --font-display:'P052 PDF';
  --space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;
  --space-5:48px;--space-6:64px;--space-7:96px;--space-8:128px;
  --card-gap:var(--space-3);

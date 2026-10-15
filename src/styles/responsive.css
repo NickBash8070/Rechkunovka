@@ -2,7 +2,7 @@
 .info-section{padding:var(--section-space) var(--mobile-space) 0}
 .eyebrow{color:var(--color-text-secondary);text-transform:uppercase}
 .section-heading{font-family:var(--font-heading);margin-top:var(--space-2);max-width:20em}
-.serif{font-family:var(--font-body)}
+.serif{font-family:var(--font-display)}
 .intro{color:var(--color-text-secondary);margin-top:var(--space-3);max-width:47em}
 .minor-copy{color:var(--color-text-secondary);margin-block:var(--space-3)}
 .section-note{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-2);border-top:0;padding-block:var(--space-2) var(--space-3);margin-top:var(--space-5);color:var(--color-text-secondary)}
@@ -12,7 +12,7 @@
 .stat{min-width:0;border-top:1px solid var(--color-border);padding-top:var(--space-3)}
 .stat dt{white-space:nowrap;margin-bottom:var(--space-2)}
 .stat dd{margin:0;color:var(--color-text-secondary)}
-.serif-values dt{font-family:var(--font-body)}
+.serif-values dt{font-family:var(--font-display)}
 .stat .icon{margin-bottom:var(--space-2)}
 .stats.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 .asset-note{color:var(--color-text-secondary);margin-block:var(--space-2)}
