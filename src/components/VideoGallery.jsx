@@ -46,7 +46,7 @@ export function VideoGallery(){
   <GalleryPlayer key={selected} clip={clips[selected]}/>
 
   <div className="gallery-thumbnails" role="group" aria-label="Выбрать видео">
-   {clips.map(clip=><button type="button" key={clip.id} aria-label={`Выбрать ${clip.label.toLowerCase()}`} aria-pressed={selected===clip.id} onClick={()=>setSelected(clip.id)}><div className="gallery-thumbnail-image"><img src={clip.poster} alt="" width="640" height={clip.cropBlackBars?480:360} loading="lazy"/></div><span className="type-ui type-compact">{clip.label}</span></button>)}
+   {clips.map((clip,index)=><button type="button" key={clip.id} aria-label={`Выбрать ${clip.label.toLowerCase()}`} aria-pressed={selected===clip.id} onClick={()=>setSelected(clip.id)}><div className="gallery-thumbnail-image"><img src={clip.poster} alt="" width="640" height={clip.cropBlackBars?480:360} loading="lazy"/></div><span className="type-ui type-compact">{String(index+1).padStart(2,'0')}</span></button>)}
   </div>
  </div>;
 }

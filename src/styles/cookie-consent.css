@@ -3,23 +3,23 @@
  position:fixed;z-index:25;left:50%;bottom:calc(var(--space-3) + env(safe-area-inset-bottom,0px));
  width:max-content;max-width:min(750px,calc(100% - var(--mobile-space) * 2));
  display:flex;align-items:center;gap:var(--space-3);padding:var(--space-1) var(--space-2);
- background:#fff;color:var(--color-text-secondary);border:1px solid var(--color-border);border-radius:6px;
+ background:#000;color:#cfd2c3;border:1px solid #303030;border-radius:6px;
  transform:translateX(-50%);animation:cookie-consent-enter 320ms cubic-bezier(.22,1,.36,1) both;
 }
 .cookie-consent-copy{min-width:0}
 .site-loading .cookie-consent{animation-play-state:paused}
-.cookie-consent-copy a{color:var(--color-text);white-space:nowrap;text-decoration:underline;text-decoration-color:var(--color-border);text-underline-offset:.2em;transition:color 180ms ease}
-.cookie-consent-copy a:hover{color:#647443}
+.cookie-consent-copy a{color:var(--color-paper);white-space:nowrap;text-decoration:underline;text-decoration-color:#747474;text-underline-offset:.2em;transition:color 180ms ease}
+.cookie-consent-copy a:hover{color:#fff}
 .cookie-consent-actions{display:flex;flex-shrink:0;gap:var(--space-1)}
 .cookie-consent-actions button{
  min-height:44px;padding:var(--space-1) var(--space-2);white-space:nowrap;
  text-transform:none;transition:background-color 180ms ease,color 180ms ease;
 }
-.cookie-consent-reject{background:var(--color-surface);color:var(--color-text)}
-.cookie-consent-reject:hover{background:var(--color-background)}
-.cookie-consent-accept{background:var(--color-text);color:var(--color-paper)}
-.cookie-consent-accept:hover{background:#304b3f}
-.cookie-consent :is(a,button):focus-visible{outline:2px solid var(--color-text);outline-offset:3px}
+.cookie-consent-reject{background:#151515;color:#d8d8d8}
+.cookie-consent-reject:hover{background:#242424}
+.cookie-consent-accept{background:#303030;color:var(--color-paper)}
+.cookie-consent-accept:hover{background:#414141}
+.cookie-consent :is(a,button):focus-visible{outline:2px solid var(--color-paper);outline-offset:3px}
 .cookie-consent-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 /* Keep the notice out of the menu's focus trap and clear of active form fields. */
 body:has(.menu-present) .cookie-consent,body:has(#contact-request-form:focus-within) .cookie-consent{visibility:hidden;pointer-events:none}

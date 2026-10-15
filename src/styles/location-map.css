@@ -5,7 +5,11 @@
 .geographic-map .maplibregl-map{font-family:var(--font-body)}
 .geographic-map[data-ready=true] .location-map-canvas{opacity:1}
 .location-map-canvas canvas:focus-visible{outline:2px solid var(--map-green);outline-offset:-3px}
-.location-map-canvas .maplibregl-cooperative-gestures-screen{background:rgb(232 231 217 / .85);color:var(--map-green);font-family:var(--font-body);font-size:var(--font-size-ui);line-height:var(--line-height-ui)}
+.location-map-canvas .maplibregl-cooperative-gesture-screen{background:rgb(232 231 217 / .85);color:var(--map-green);font-family:var(--font-body);font-size:var(--font-size-ui);line-height:var(--line-height-ui)}
+@media(max-width:650px){
+ .location-map-canvas .maplibregl-cooperative-gesture-screen{inset:0;display:flex;align-items:center;justify-content:center;padding:var(--space-3);text-align:center}
+ .location-map-canvas .maplibregl-mobile-message{width:100%;max-width:24em;margin:0 auto;text-align:center}
+}
 .location-map-overlay{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
 .geo-position{position:absolute;left:0;top:0;transform:translate3d(var(--marker-x,0px),var(--marker-y,0px),0);--marker-anchor:14px}
 .geo-position[hidden]{display:none}

@@ -46,6 +46,11 @@ h1,h2,h3,p{margin:0}
 .dialog.image-dialog{padding:0;background:transparent;width:min(1831px,calc(100vw - 32px),calc((100dvh - 48px) * 1719 / 1214 + 112px));max-width:none;max-height:calc(100dvh - 48px);overflow:hidden}
 .dialog.image-dialog .full-concept{display:block;width:100%;height:auto;margin:0;min-height:0;aspect-ratio:1719/1214;object-fit:contain}
 .concept-viewer{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:var(--space-2);align-items:center}
+.concept-viewport{min-width:0;overflow:hidden;touch-action:pan-y pinch-zoom}
+.concept-track{display:flex;transform:translateX(calc(-100% + var(--concept-offset,0px)))}
+.concept-track.is-settling{transition:transform 240ms cubic-bezier(.22,1,.36,1)}
+.concept-track.is-dragging,.concept-track.is-settling{will-change:transform}
+.concept-slide{flex:0 0 100%;min-width:0}
 .concept-viewer .full-concept{touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
 .concept-navigation{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:var(--space-1);background:transparent;color:#fff;border-radius:50%;transition:background-color 180ms ease}
 .concept-navigation:hover,.concept-navigation:focus-visible{background:rgb(255 255 255 / .16)}
@@ -53,7 +58,7 @@ h1,h2,h3,p{margin:0}
 @media(max-width:700px){
  .dialog.image-dialog{width:min(1719px,calc(100vw - 32px),calc((100dvh - 112px) * 1719 / 1214));max-height:calc(100dvh - 32px)}
  .concept-viewer{grid-template-columns:1fr 1fr;gap:var(--space-2)}
- .concept-viewer .full-concept{grid-column:1 / -1;grid-row:1}
+ .concept-viewer .concept-viewport{grid-column:1 / -1;grid-row:1}
  .concept-navigation{grid-row:2}
  .concept-navigation.previous{grid-column:1;justify-self:end}
  .concept-navigation.next{grid-column:2;justify-self:start}

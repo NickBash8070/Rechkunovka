@@ -1,5 +1,13 @@
 # Prototype Instructions
 
+User-requested black cookie notice (2026-10-15): use pure black #000 for the cookie notice, subdued light text, a fine dark border and dark neutral buttons (#151515 Reject / #303030 Accept) with readable light labels. Keep Accept visually stronger, coordinated dark hover surfaces and a light visible keyboard outline. Supersedes the prior white/sage cookie palette only; preserve compact sizing, responsive layout and consent behavior.
+
+User-requested direct mobile gallery sliding (2026-10-15): at <=650px concept images follow a one-finger horizontal drag in a clipped three-slide track, exposing the adjacent page. Complete a valid swipe with a restrained 240ms slide; snap back on short gestures. Preserve wraparound, buttons/keyboard, single live page announcement, native pinch zoom, cancellation, resize and reduced motion. Neighboring full images may load only while the viewer is open. Keep tablet/desktop composition and existing image aspect ratios.
+
+User-requested centered phone map gesture hint (2026-10-15): center the “Перемещайте карту двумя пальцами” message horizontally and vertically within the complete map viewport at <=650px, with centered wrapped text and shared 24px padding. Use the SDK's actual .maplibregl-cooperative-gesture-screen class (singular gesture), correcting the previously ineffective selector. Preserve native hint visibility, duration and two-finger interactions.
+
+User-requested numeric video thumbnail labels (2026-10-15): in the open video gallery show only two-digit sequential numbers 01–07 under all seven previews, without the visible word “Видео”. Keep descriptive accessible labels, clip order, playback behavior and responsive layout.
+
 User-requested leaf-only medical SPA icon (2026-10-15): show a single centered leaf with its vein for “2 546 м² медицинский SPA”, without a medical plus. Supersedes the earlier leaf-plus artwork; preserve shared icon dimensions, stroke, color and alignment on every screen.
 
 User-requested medical SPA pictogram replacement (2026-10-15): replace the cross-with-checkmark medical-spa artwork at “2 546 м² медицинский SPA” with a leaf and a separate small medical plus. Keep the established 32-unit viewBox, 2px stroke, accent color, size, optical alignment and responsive layout.
