@@ -1,5 +1,9 @@
 /* Assign visual roles independently of semantic HTML tags.
    Inline children inherit the explicit role of their text block. */
+#home .hero .stats .stat dt.type-h2{padding-bottom:16px}
+@media(max-width:650px){#home .hero .stats .stat dt.type-h2{padding-bottom:8px}}
+#plots .plot-visual .asset-note.type-caption{--type-size:14px;--type-leading:1.4;font-size:14px;line-height:1.4;letter-spacing:normal}
+@media(max-width:650px){#plots .plot-visual .asset-note.type-caption{--type-size:12px;font-size:12px}}
 .plot-value,.feature-number,.offer-value{font-family:var(--font-display)}
 .info-section .section-heading.type-h2{font-family:var(--font-display)}
 :root{

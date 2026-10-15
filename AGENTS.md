@@ -1,5 +1,33 @@
 # Prototype Instructions
 
+User-requested taller phone concept CTA and separated page count (2026-10-16, 430px): at <=650px the full-width concept action has 72px minimum height and 16px vertical padding; its vertically stacked “154” / “Страницы” group has an 8px gap instead of zero. Preserve label size, arrow and thumbnail alignment.
+
+User-requested equal phone parcel summary halves (2026-10-16): split the area/cadastral row into two equal minmax(0,1fr) columns with 16px gap; align cadastral IDs to the start of the right half instead of the far right, removing the oversized central void. Applies to both parcels at <=650px. Red reference line denotes the split, not a decorative site rule. IDs may scale down to 11px at narrow phone widths.
+
+User-requested phone parcel summary row (2026-10-16, 430px): at <=650px place each parcel's two cadastral IDs to the right of its 5.5/8.5 ha value in the same grid row, vertically centered. Keep IDs stacked in two unbroken lines with responsive 12–14px type and 16px column gap. Remaining details span both columns; preserve tablet/desktop layout and phone artwork order.
+
+User-requested hero KPI spacing (2026-10-16, tablet 820px): add 16px bottom padding below all three hero values (5.5/8.5/14 ha), separating numbers from their icon/caption rows on desktop/tablet. Phone fallback uses 8px while preserving the approved hidden phone stats group. Preserve column widths, values and captions.
+
+User-requested tighter tablet location feature grouping and more space below (2026-10-16): at 651–1119px use two max-content columns with 32px gap, bringing the two feature labels closer instead of distributing them across equal columns; add 24px bottom padding before the road note. Supersedes the equal-column tablet feature arrangement.
+
+User-requested tablet location features in one row (2026-10-16, 820px): at 651–1119px place “Реликтовый сосновый бор” and “Яхт-клубы и пляжи” side by side in two equal grid columns with a 24px gap. Preserve icon/title alignment and existing phone/desktop layout.
+
+User-requested concept CTA alignment (2026-10-16, tablet 820px): the green concept request strip fills the concept panel width, matching both outer edges of the thumbnail grid at <=1119px. Override shared fit-content/max-width-minus-16px action sizing for this strip; preserve its padding, content and responsive grid.
+
+User-requested larger space after contact submit (2026-10-16, tablet 820px): increase #contact .manager top margin from 48px to 64px at <=1119px, adding breathing room after “Запросить материалы” before manager contacts. Preserve desktop spacing and consent placement.
+
+User-requested larger contour badge text (2026-10-16): both circular parcel captions use 14px on desktop/tablet and 12px on phones, 1.4 leading and normal tracking. Preserve circle dimensions, centered three-line wording and parcel artwork. Supersedes prior 10px contour captions.
+
+User-requested contact bottom breathing room (2026-10-16): add padding-bottom:var(--section-inset) to #contact .contact-layout at all breakpoints, between the FAQ/form/manager block and the agency footer. Retain footer margin and zero section padding beneath the footer so the page still ends at its green edge.
+
+User-requested flat concept previews (2026-10-16): remove box shadows from all concept gallery thumbnail buttons at every breakpoint, including hover/focus. Preserve borders, images, layout and viewer interactions.
+
+User-requested serif headings on light sections (2026-10-16): all primary .section-heading.type-h2 headings in .info-section use the original P052 display serif at every breakpoint, including resort-concept, campus-concept, market, offers and contact. Preserve heading sizes, spacing, wording and photographic section typography. Supersedes presentation's sans-serif heading choice for light sections.
+
+User-requested location map border removal (2026-10-16): remove the decorative outer border from .location-map-frame at every viewport. Preserve map layout, markers, controls and keyboard focus indication. The blue browser comment selection outline is editor UI, not site styling.
+
+User-requested desktop market KPI separators (2026-10-16): at >=1120px remove the four top borders from #market .market-stats and show three thin vertical rules between adjacent columns, centered in the existing 54-source-unit gaps. Use decorative pseudo-elements so values, icons, column widths and spacing do not shift. Preserve tablet/phone top-rule treatment, colors and all other sections.
+
 User-reported inverted published palette (2026-10-15): the screenshot shows cream information backgrounds and map city plaques changed to dark olive with light text, while the deployed CSS matches the intended local palette. Declare meta color-scheme=only light before styles and :root color-scheme:only light to opt out of browser Auto Dark Theme without changing brand colors or disabling accessibility forced-colors. Browser extensions may still override site styles; do not claim these declarations control extensions. Preserve all layout and media.
 
 User-requested matching phone menu CTA height (2026-10-15): at <=650px the mobile navigation's “Запросить материалы” action is 48px tall, matching shared phone CTAs, with 8px/24px padding, 24px label/arrow gap and 14px/1.4 type. Center label cap bounds and arrow using the same trimming/fallback as shared actions. Preserve menu interactions, link spacing, green/olive palette and tablet/desktop dimensions.

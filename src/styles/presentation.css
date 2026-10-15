@@ -28,7 +28,7 @@
  font-family:var(--font-body);margin-top:calc(54 * var(--slide-unit));
  width:100%;min-width:0;max-width:min(100%,var(--heading-measure,14em));text-wrap:wrap;
 }
-:is(#location,#plots) .content-composition .section-heading.type-h2{font-family:var(--font-display)}
+.pdf-section:not(#home) .info-section .section-heading.type-h2{font-family:var(--font-display)}
 #plots.pdf-section{--slide-heading:calc(64 * var(--slide-unit))}
 #campus-concept.pdf-section{--slide-heading:calc(59 * var(--slide-unit))}
 #contact.pdf-section{--slide-heading:calc(67 * var(--slide-unit))}
@@ -100,6 +100,9 @@
 #location .stats .stat dt.type-h2{--type-size:calc(65 * var(--slide-unit));--type-leading:1.05;translate:none;border-bottom:1px solid var(--color-border);margin:0 0 calc(16 * var(--slide-unit));padding-bottom:calc(16 * var(--slide-unit));white-space:nowrap}
 #location .stats .stat dd.type-body{--type-size:max(11px,calc(16 * var(--slide-unit)));--type-leading:1.3}
 #location .location-features{grid-row:5;grid-template-columns:1fr;margin:calc(40 * var(--slide-unit)) 0 0;padding:0;gap:calc(14 * var(--slide-unit))}
+@media(min-width:651px) and (max-width:1119px){
+ #location .content-composition .location-features{grid-template-columns:repeat(2,max-content);column-gap:32px;align-items:start;padding-bottom:24px}
+}
 #location .location-features h3{--type-size:calc(21 * var(--slide-unit))}
 #location .info-section>.minor-copy{grid-row:6;--type-size:max(13px,calc(17 * var(--slide-unit)));margin:calc(20 * var(--slide-unit)) 0 0}
 #location .info-section>.action{grid-row:7;margin-top:calc(16 * var(--slide-unit))}
@@ -190,9 +193,17 @@
 #market .market-notes p:last-child{font-size:max(10px,calc(10 * var(--slide-unit)))}
 #market .content-composition>.section-note{margin-top:calc(16 * var(--slide-unit));padding-top:calc(12 * var(--slide-unit))}
 
+@media(min-width:1120px){
+ #market .market-stats .stat{position:relative;border-top:0}
+ #market .market-stats .stat+.stat::before{
+  content:'';position:absolute;top:0;bottom:0;left:calc(-27 * var(--slide-unit));
+  border-left:1px solid var(--color-border);pointer-events:none;
+ }
+}
+
 /* Keep the working form and accordion; reproduce the two-column contact page. */
 #contact.pdf-section .content-composition.contact-section{padding-bottom:0}
-#contact .contact-layout{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:calc(72 * var(--slide-unit));margin-top:calc(44 * var(--slide-unit));flex:1}
+#contact .contact-layout{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:calc(72 * var(--slide-unit));margin-top:calc(44 * var(--slide-unit));padding-bottom:var(--section-inset);flex:1}
 #contact .faq-accordion{gap:0}
 #contact .faq-accordion details{background:none;border-top:1px solid var(--color-border)}
 #contact .faq-accordion summary{padding:calc(16 * var(--slide-unit)) 0 calc(8 * var(--slide-unit));min-height:44px}
@@ -290,6 +301,10 @@
  #location .location-map-frame{height:auto;min-height:440px}
  #plots .plot-value.type-h2{--type-size:clamp(44px,12vw,62px)}
  #plots .cadastral{--type-size:14px}
+ #plots .plot-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-content:start}
+ #plots .plot-details>*{grid-column:1/-1}
+ #plots .plot-details>.plot-value{grid-column:1;grid-row:1;margin:0}
+ #plots .plot-details>.cadastral{grid-column:2;grid-row:1;align-self:center;justify-self:start;margin:0;--type-size:clamp(11px,3.25vw,14px);font-size:var(--type-size);white-space:nowrap}
  #plots .plot-details h3.type-h4{--type-size:24px}
  #plots .plot-details>.minor-copy{--type-size:16px}
  #resort-concept .stats.four{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px;margin:32px 0 20px}
@@ -417,6 +432,7 @@
   background:var(--color-text);color:var(--color-paper);
  }
  #root .pdf-section:not(#home) .action:is(:hover,:focus-visible){background:var(--color-action-hover);color:var(--color-paper)}
+ #root #resort-concept .concept-panel>.action{width:100%;max-width:100%;align-self:stretch}
  #resort-concept .concept-action-label{--type-size:14px;font-size:14px}
 }
 @media(max-width:650px){
@@ -426,12 +442,14 @@
 @media(max-width:1119px){
  #root .photo-section>.section-note.type-caption{--type-size:10px;font-size:10px}
  #resort .section-note .hotel-caption{align-self:flex-start;margin-left:0;margin-right:auto;text-align:left}
- #contact .manager{margin-top:48px}
+ #contact .manager{margin-top:64px}
 }
 
 @media(max-width:650px){
  #root .pdf-section:not(#home) .action,
  #root #home .hero .photo-content>.action{width:100%;max-width:100%;align-self:stretch}
  #resort-concept .concept-action-label{--type-size:var(--font-size-caption);font-size:var(--font-size-caption)}
+ #root #resort-concept .concept-panel>.action{min-height:72px;padding-block:16px}
+ #root #resort-concept .concept-page-count{gap:8px}
  #location .info-section>.section-heading.type-h2{width:min(100%,8.4em);max-width:100%;text-wrap:wrap}
 }

@@ -97,7 +97,7 @@
 .numbered-list .feature-number{order:-1;font-family:var(--font-body);padding-top:var(--space-1)}
 .concept-panel>h3{margin-top:var(--space-2)}
 .concept-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--card-gap);margin-top:var(--space-4)}
-.concept-grid button{padding:var(--space-1);background:#fff;border:1px solid var(--color-border);aspect-ratio:148/68;min-width:0;box-shadow:2px 3px 0 rgb(207 210 195 / .3)}
+.concept-grid button{padding:var(--space-1);background:#fff;border:1px solid var(--color-border);aspect-ratio:148/68;min-width:0;box-shadow:none}
 .concept-grid .concept-thumbnail{display:block;width:100%;height:100%;object-fit:contain}
 .concept-panel .action{width:100%;margin-top:var(--space-3)}
 .campus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--card-gap);margin-top:var(--space-6)}
