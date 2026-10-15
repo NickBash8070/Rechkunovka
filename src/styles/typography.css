@@ -2,12 +2,12 @@
    Inline children inherit the explicit role of their text block. */
 .plot-value,.feature-number,.offer-value{font-family:var(--font-display)}
 :root{
- --font-size-h1:clamp(27px,calc(7vw + 4.6px),145px);
- --font-size-h2:clamp(24px,calc(4vw + 11.2px),90px);
- --font-size-h3:clamp(20px,calc(1.55vw + 15.04px),44px);
- --font-size-h4:clamp(18px,calc(1.07vw + 14.576px),32px);
- --font-size-h5:clamp(17px,calc(.78vw + 14.504px),28px);
- --font-size-body:clamp(16px,calc(.62vw + 14.016px),24px);
+ --font-size-h1:clamp(27px,min(calc(6.5vw + 2.8px),12svh),112px);
+ --font-size-h2:clamp(26px,calc(2.4vw + 12px),60px);
+ --font-size-h3:clamp(20px,calc(1vw + 14px),32px);
+ --font-size-h4:clamp(18px,calc(.65vw + 14px),26px);
+ --font-size-h5:clamp(16px,calc(.4vw + 14px),22px);
+ --font-size-body:clamp(16px,calc(.3vw + 14px),20px);
  --line-height-h1:1.02;--line-height-h2:1.1;--line-height-h3:1.16;
  --line-height-h4:1.22;--line-height-h5:1.28;--line-height-body:1.5;
  --font-weight-regular:400;--font-weight-bold:700;
@@ -29,6 +29,13 @@
 .type-body{--type-size:var(--font-size-body);--type-leading:var(--line-height-body)}
 .type-caption{--type-size:var(--font-size-caption);--type-leading:var(--line-height-caption)}
 .type-ui{--type-size:var(--font-size-ui);--type-leading:var(--line-height-ui)}
+:is(#location,#resort-concept,#market) .stats dt.type-h2{--type-size:clamp(28px,3vw,52px)}
+:is(#location,#resort-concept,#market) .stat-unit.type-h2{--type-size:var(--font-size-body)}
+:is(#location,#resort-concept,#market) .stats dd.type-body{--type-size:var(--font-size-ui);--type-leading:var(--line-height-ui)}
+@media(max-width:650px){
+ :is(#location,#resort-concept,#market) .stats dt.type-h2{--type-size:clamp(28px,7.5vw,36px)}
+ #home .hero .stat dt.type-h2{--type-size:28px}
+}
 .type-input{--type-size:var(--font-size-input);--type-leading:var(--line-height-ui)}
 .type-h1,.type-h2,.type-h3,.type-h4,.type-h5,.type-body,.type-caption,.type-ui,.type-input{
  font-size:var(--type-size);line-height:var(--type-leading);
@@ -48,11 +55,6 @@
 }
 @media(max-width:650px){
  #plots .plot-details h3.type-h4{--type-size:var(--font-size-h3);--type-leading:var(--line-height-h3)}
- :is(#location,#resort-concept,#market) .stats dt.type-h2,
- :is(#location,#resort-concept,#market) .stat-unit.type-h2,
- .plot-value.type-h2,.housing-value.type-h2,.offer-value.type-h2,
- .campus-feature .feature-number.type-h2{--type-size:calc(2 * var(--font-size-h2))}
- .concept-page-count .type-h3{--type-size:calc(2 * var(--font-size-h3))}
  #contact .manager-links.type-h4{--type-size:var(--font-size-h2)}
  .section-note.type-caption,.asset-note.type-caption,.market-notes.type-caption,
  .hotel-caption .source-credit.type-caption,.housing-land-card .small-label.type-caption,

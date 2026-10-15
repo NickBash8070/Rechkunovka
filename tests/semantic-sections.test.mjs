@@ -44,3 +44,13 @@ test('normal-flow compositions retain all 21 KPI identities and CTA interactions
  assert.ok(html.includes('contact-form'));assert.ok(html.includes('agency-footer'));
  assert.ok(html.includes('54:32:010876:1992'));assert.ok(html.includes('54:32:010876:1070'));
 });
+
+test('client review restores location order, caption units and original resort category wording',()=>{
+ const location=render(2);
+ assert.ok(location.indexOf('2-number-14')<location.indexOf('2-number-12'));
+ assert.ok(location.indexOf('2-number-12')<location.indexOf('2-number-16'));
+ assert.match(location,/<dd[^>]*>м от остановки<\/dd>/);
+ assert.match(location,/<dd[^>]*>мин от Академгородка<\/dd>/);
+ const resort=render(6);
+ assert.ok(resort.includes('звезды — целевая категория'));
+});

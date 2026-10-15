@@ -35,16 +35,10 @@ export function arrangeMapMarkers({width,height,project,cities,phone=false}){
   let placed=null;
   const cityHeight=city.height||44;
   if(city.x>=12&&city.x<=width-12&&city.y>=28&&city.y<=height-40){
-   const cityX=clamp(city.x,city.width/2+12,width-city.width/2-12);
-   for(const candidateX of [cityX,city.width/2+12,width-city.width/2-12]){
-    for(const offset of [0,32,-32,56,-56,80,-80]){
-    const candidate=rect(candidateX,city.y+offset,city.width,cityHeight);
+    const candidate=rect(city.x,city.y,city.width,cityHeight);
     if(candidate.left>=10&&candidate.right<=width-10&&candidate.top>=8&&candidate.bottom<=height-52&&!occupied.some(other=>overlaps(candidate,other))){
-     placed={...city,x:candidateX,y:city.y+offset,hidden:false};occupied.push(candidate);break;
+     placed={...city,hidden:false};occupied.push(candidate);
     }
-    }
-    if(placed)break;
-   }
   }
   result[city.id]=placed||{...city,hidden:true};
  }

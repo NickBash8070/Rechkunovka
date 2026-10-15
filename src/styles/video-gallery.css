@@ -3,6 +3,7 @@
 .video-dialog .dialog-close{margin:0 0 var(--space-2) auto;padding:var(--space-1) 0;min-height:44px;color:var(--color-paper);opacity:.7}
 .video-dialog .dialog-close:hover,.video-dialog .dialog-close:focus-visible{opacity:1}
 .gallery-player{position:relative;background:transparent}
+.video-dialog{outline:1px solid var(--color-accent);outline-offset:8px}
 .gallery-player video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
 .gallery-player.crop-black-bars video{aspect-ratio:4/3;object-fit:cover}
 .gallery-thumbnails{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:var(--card-gap);margin-top:var(--space-3)}

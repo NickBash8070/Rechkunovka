@@ -11,7 +11,7 @@ test('compact phone overview shows all cities on their actual projected points',
  const minX=Math.min(...geographic.map(p=>p.x)),maxX=Math.max(...geographic.map(p=>p.x));
  const minY=Math.min(...geographic.map(p=>p.y)),maxY=Math.max(...geographic.map(p=>p.y));
  for(const width of [260,276,331,386,500,606]){
-  const height=Math.max(440,width);
+  const height=Math.max(400,width);
   const scale=Math.min((width-112)/(maxX-minX),(height-192)/(maxY-minY));
   const projectPoint=point=>{
    const p=mercator(point);

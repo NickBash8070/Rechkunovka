@@ -2,16 +2,16 @@
   {
     "id": 0,
     "label": "Видео 01",
-    "poster": "/videos/location-01-ae83004bbb.webp",
-    "src": "/videos/location-01.mp4",
-    "source": "DJI_20260928112737_0001_D_stabilized_1.mp4",
-    "bytes": 197327280,
-    "posterBytes": 58558,
-    "duration": 152.719233,
+    "poster": "/videos/location-07-9e74e7de2d.webp",
+    "src": "/videos/location-07.mp4",
+    "source": "БЕРДСК_Территория_ДРОН2_mp4_h264_1080p25_BB_1.mp4",
+    "bytes": 39998855,
+    "posterBytes": 50706,
+    "duration": 32.2,
     "width": 1280,
     "height": 720,
     "codec": "h264",
-    "cropBlackBars": true
+    "cropBlackBars": false
   },
   {
     "id": 1,
@@ -86,15 +86,15 @@
   {
     "id": 6,
     "label": "Видео 07",
-    "poster": "/videos/location-07-9e74e7de2d.webp",
-    "src": "/videos/location-07.mp4",
-    "source": "БЕРДСК_Территория_ДРОН2_mp4_h264_1080p25_BB_1.mp4",
-    "bytes": 39998855,
-    "posterBytes": 50706,
-    "duration": 32.2,
+    "poster": "/videos/location-01-ae83004bbb.webp",
+    "src": "/videos/location-01.mp4",
+    "source": "DJI_20260928112737_0001_D_stabilized_1.mp4",
+    "bytes": 197327280,
+    "posterBytes": 58558,
+    "duration": 152.719233,
     "width": 1280,
     "height": 720,
     "codec": "h264",
-    "cropBlackBars": false
+    "cropBlackBars": true
   }
 ]
