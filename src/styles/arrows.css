@@ -3,4 +3,13 @@
 /* Text needs Nimbus's optical lift; circular controls center the SVG on both axes. */
 .concept-navigation{--arrow-optical-y:0px}
 .arrow-icon path{stroke-width:var(--arrow-stroke);vector-effect:non-scaling-stroke}
+.action>.arrow-icon{--arrow-optical-y:0px;align-self:center}
+.action-label{display:block;min-width:0}
+@supports(text-box-trim:trim-both){
+ .action-label,.action .concept-action-label{text-box-trim:trim-both;text-box-edge:cap alphabetic}
+ .action .concept-action-label{display:block}
+}
+@supports not (text-box-trim:trim-both){
+ .action-label,.action .concept-action-label{transform:translateY(.14em)}
+}
 @media(prefers-reduced-motion:reduce){.arrow-icon{transition:none;translate:none!important}}

@@ -58,7 +58,6 @@
  .hero .section-note{margin-top:var(--space-1)}
 }
 
-.hero .photo-heading .hero-title-line{display:block;white-space:nowrap}
 @media(min-width:429px) and (max-width:431px){
  .hero .stats{margin-bottom:var(--space-5)}
 }

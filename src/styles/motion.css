@@ -16,7 +16,7 @@
 .counter-final{opacity:0}
 .counter-value{position:absolute;left:0;top:0;white-space:pre}
 .action,.video-card,.agency-footer :is(button,.agency-site-link),.concept-grid button,.gallery-thumbnails>button{transition:background-color var(--motion-micro) ease,color var(--motion-micro) ease,opacity var(--motion-micro) ease,transform var(--motion-micro) var(--motion-ease)}
-.action:hover,.action:focus-visible,.agency-footer :is(button,.agency-site-link):hover,.agency-footer :is(button,.agency-site-link):focus-visible{opacity:.88}
+.agency-footer :is(button,.agency-site-link):hover,.agency-footer :is(button,.agency-site-link):focus-visible{opacity:.88}
 .concept-grid button:hover,.concept-grid button:focus-visible{transform:translateY(-2px)}
 .header-link,.manager-links a,.contact-links a,.dialog-close{transition:opacity var(--motion-micro) ease}
 .site-header .header-link,.site-header nav a,.site-header .menu-toggle{transition:color var(--motion-micro) ease}
@@ -55,3 +55,17 @@
 .plot-dot-pattern{opacity:.65}
 @media(max-width:650px){.plot-flora{--flora-delay:1100ms}}
 @media(prefers-reduced-motion:reduce){.plot-card .flora-item{opacity:.75;animation:none!important}.plot-card .plot-sapling,.plot-card .plot-seed{animation:none!important}}
+
+/* Phone photography is static; retain intentional gallery swipes and map gestures. */
+@media(max-width:650px){
+ #root .photo-section .photo-background{transform:none;transition:none;animation:none}
+ #root main img{transition:none;animation:none}
+ #root :is(.agency-logo,.video-card,.plot-card,.concept-grid>button).motion-target{opacity:1;transform:none;transition:none;animation:none}
+ #root .concept-grid button:is(:hover,:focus-visible){transform:none}
+ #root .video-card .play-icon{transform:none;transition:none;animation:none}
+ #root .plot-card .plot-stroke{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+ #root .plot-card .plot-fill{animation:none;fill-opacity:1}
+ #root .plot-card .plot-visual .asset-note{animation:none;opacity:1;scale:1}
+ #root .plot-card .flora-item{animation:none;opacity:.75}
+ #root .plot-card :is(.plot-sapling,.plot-seed){animation:none}
+}

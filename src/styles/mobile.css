@@ -10,8 +10,14 @@
 .site-header.mobile-header nav a[aria-current]{text-decoration:none}
 .site-header.mobile-header nav .mobile-menu-request{background:var(--color-text);color:var(--color-paper);margin-top:var(--space-3);padding:var(--space-2);border:0;justify-content:space-between;gap:var(--space-2)}
 @media(max-width:650px){
- :root{--card-gap:var(--space-2);--note-opacity:.85}
- .content-composition .section-note>span.generation-credit{opacity:.6}
+ #root .site-header.mobile-header nav .mobile-menu-request{height:48px;min-height:48px;padding:8px 24px;align-items:center;gap:24px;font-size:14px;line-height:1.4}
+ #root .mobile-menu-request>.arrow-icon{--arrow-optical-y:0px}
+ #root .mobile-menu-request>span{display:block;min-width:0}
+ @supports(text-box-trim:trim-both){#root .mobile-menu-request>span{text-box-trim:trim-both;text-box-edge:cap alphabetic}}
+ @supports not (text-box-trim:trim-both){#root .mobile-menu-request>span{transform:translateY(.14em)}}
+}
+@media(max-width:650px){
+ :root{--card-gap:var(--space-2)}
  .content-composition .section-heading,.content-composition .photo-heading{text-wrap:balance}
  .action{width:100%}
  .plot-card+.plot-card{padding-left:0}

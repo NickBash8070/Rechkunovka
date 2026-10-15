@@ -15,7 +15,8 @@ const bundle=await build({entryPoints:[fileURLToPath(new URL('../src/sections/Co
  },
 }]});
 const module={exports:{}};
-runInNewContext(bundle.outputFiles[0].text,{module,exports:module.exports,require:createRequire(import.meta.url)});
+const runtime={module,exports:module.exports,require:createRequire(import.meta.url)};
+runInNewContext(bundle.outputFiles[0].text,runtime);
 const {ContentSection}=module.exports;
 const pages=JSON.parse(readFileSync(new URL('../src/sections/pdf-data.json',import.meta.url),'utf8'));
 const headings={1:[7,8],2:[1,2],3:[1,2,3],4:[1],5:[1,2],6:[1],7:[1,2,3],8:[1,2],9:[1,2,3],10:[1,2],11:[0,1],12:[1,2],13:[1,2,3],14:[1,2],15:[1,2,3],16:[1]};
@@ -27,9 +28,11 @@ test('all 16 sections have a whole semantic heading, with no positioned PDF line
   const html=render(page.number);
   const text=headings[page.number].map(i=>page.spans[i].text).join(' ');
   if(page.number===1){
-   assert.match(html,/<h1[^>]*><span class="hero-title-line">РЕЧКУНОВСКАЯ<\/span> <span class="hero-title-line">ЗОНА ОТДЫХА<\/span><\/h1>/);
+   assert.match(html,/<h1[^>]*>РЕЧКУНОВСКАЯ ЗОНА ОТДЫХА<\/h1>/);
   }else{
-   assert.ok(html.includes(escape(text)),`Heading ${page.number} is intact`);
+   const heading=html.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/)?.[1].replace(/<[^>]*>/g,'');
+   assert.equal(heading,escape(text),`Heading ${page.number} is intact`);
+   assert.match(html,new RegExp('<h2[^>]*>'+escape(text).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'<\\/h2>'));
   }
   assert.equal((html.match(/<h[12]\b/g)||[]).length,1);
   assert.ok(!/pdf-text|desktop-composition|style="(?:left|top):/.test(html));
@@ -53,4 +56,13 @@ test('client review restores location order, caption units and original resort c
  assert.match(location,/<dd[^>]*>мин от Академгородка<\/dd>/);
  const resort=render(6);
  assert.ok(resort.includes('звезды — целевая категория'));
+});
+
+test('contact answers are initially closed on desktop and phone',()=>{
+ try{
+  runtime.window={matchMedia:query=>({matches:query==='(min-width:1120px)'})};
+  assert.equal((render(16).match(/aria-expanded="false"/g)||[]).length,4);
+  runtime.window={matchMedia:()=>({matches:false})};
+  assert.equal((render(16).match(/aria-expanded="false"/g)||[]).length,4);
+ }finally{delete runtime.window}
 });

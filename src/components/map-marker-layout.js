@@ -35,9 +35,13 @@ export function arrangeMapMarkers({width,height,project,cities,phone=false}){
   let placed=null;
   const cityHeight=city.height||44;
   if(city.x>=12&&city.x<=width-12&&city.y>=28&&city.y<=height-40){
-    const candidate=rect(city.x,city.y,city.width,cityHeight);
-    if(candidate.left>=10&&candidate.right<=width-10&&candidate.top>=8&&candidate.bottom<=height-52&&!occupied.some(other=>overlaps(candidate,other))){
-     placed={...city,hidden:false};occupied.push(candidate);
+    const above=rect(city.x,city.y,city.width,cityHeight);
+    const below={left:above.left,right:above.right,top:city.y,bottom:city.y+10+cityHeight};
+    // The project plaque can cover Berdsk's above-pin label. Flip only the
+    // plaque below its unchanged geographic point before considering hiding it.
+    const candidate=[above,below].find(box=>box.left>=10&&box.right<=width-10&&box.top>=8&&box.bottom<=height-52&&!occupied.some(other=>overlaps(box,other)));
+    if(candidate){
+     placed={...city,hidden:false,placement:candidate===below?'below':'above'};occupied.push(candidate);
     }
   }
   result[city.id]=placed||{...city,hidden:true};

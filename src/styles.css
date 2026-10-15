@@ -16,6 +16,7 @@
 @import './styles/location-map.css';
 @import './styles/cookie-consent.css';
 @import './styles/client-refinements.css';
+@import './styles/presentation.css';
 *{box-sizing:border-box}
 html{scrollbar-width:none}
 html::-webkit-scrollbar{display:none}

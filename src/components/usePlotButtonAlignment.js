@@ -7,6 +7,8 @@ export function usePlotButtonAlignment(){
   const align=()=>{
    frame=0;
    details.forEach(element=>element.querySelector('.action').style.removeProperty('--plot-cta-height'));
+   // The presentation layout aligns individual cells in a grid, with no detail box.
+   if(details.every(element=>getComputedStyle(element).display==='contents')){details.forEach(element=>element.style.removeProperty('--plot-details-height'));return}
    if(innerWidth<=960){details.forEach(element=>element.style.removeProperty('--plot-details-height'));return}
    const buttonHeight=Math.max(...details.map(element=>element.querySelector('.action').getBoundingClientRect().height));
    // Measure text only: the taller drawing must not push the text CTA down.

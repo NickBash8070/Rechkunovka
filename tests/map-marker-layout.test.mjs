@@ -2,16 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {arrangeMapMarkers} from '../src/components/map-marker-layout.js';
 import {mapCities,mapProject} from '../src/components/location-map-data.js';
-function bounds(marker,main=false){const left=marker.x-marker.width/2;return {left,right:left+marker.width,top:marker.y-(marker.height||(main?72:44))-10,bottom:marker.y}}
+function bounds(marker,main=false){const left=marker.x-marker.width/2,height=marker.height||(main?72:44);return {left,right:left+marker.width,top:marker.placement==='below'?marker.y:marker.y-height-10,bottom:marker.placement==='below'?marker.y+height+10:marker.y}}
 const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
 
-test('compact phone overview shows all cities on their actual projected points',()=>{
+test('compact phone and tablet overview shows all cities on their actual projected points',()=>{
  const mercator=point=>{const [lat,lng]=point.coordinates;return {x:lng/360,y:-Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))/(2*Math.PI)};};
  const geographic=mapCities.map(mercator);
  const minX=Math.min(...geographic.map(p=>p.x)),maxX=Math.max(...geographic.map(p=>p.x));
  const minY=Math.min(...geographic.map(p=>p.y)),maxY=Math.max(...geographic.map(p=>p.y));
- for(const width of [260,276,331,386,500,606]){
-  const height=Math.max(400,width);
+ for(const width of [260,276,331,386,500,606,700,900,1019]){
+  const height=width>650?440:Math.max(400,width);
   const scale=Math.min((width-112)/(maxX-minX),(height-192)/(maxY-minY));
   const projectPoint=point=>{
    const p=mercator(point);
@@ -38,6 +38,20 @@ test('phone city names remain available when a larger project plaque crowds them
  assert.equal(placed.akademgorodok.hidden,false);
  assert.equal(placed.berdsk.x,195);
  assert.equal(placed.berdsk.y,335);
+});
+
+test('desktop Berdsk stays visible below its pin when the project crowds the upper plaque',()=>{
+ for(const width of [500,700,900]){
+  const project={id:'project',x:width*.6,y:350,width:300,height:80};
+  const city={id:'berdsk',x:width*.6+8,y:385,width:90,height:44};
+  const placed=arrangeMapMarkers({width,height:600,project,cities:[city]});
+  assert.equal(placed.berdsk.hidden,false);
+  assert.equal(placed.berdsk.placement,'below');
+  assert.equal(placed.berdsk.x,city.x);
+  assert.equal(placed.berdsk.y,city.y);
+  assert.equal(intersects(bounds(placed.project,true),bounds(placed.berdsk)),false);
+  assert.ok(bounds(placed.berdsk).bottom<=548);
+ }
 });
 test('project remains inside the map through panning and resizing, without covering zoom controls',()=>{
  for(const width of [260,315,330,440,600,900])for(const x of [-900,0,width*.6,width+900])for(const y of [-900,100,420,1400]){

@@ -11,6 +11,7 @@
  --color-background:#f3f0e6;--color-surface:#e5e8d8;--color-paper:#fffef5;
  --color-text:#20362f;--color-text-secondary:#657165;--color-accent:#909c6d;
  --color-border:#cfd2c3;--color-water:#688994;--color-plot-resort:#e1e7cd;--color-plot-housing:#dfeaec;
+ --color-action-hover:#4d5e28;
  --mobile-space:clamp(22px,4.375vw,48px);
 }
 @media(max-width:1439px){:root{--section-space:var(--space-7)}}

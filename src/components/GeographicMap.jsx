@@ -26,12 +26,12 @@ export default function GeographicMap(){
   setReady(false);setFailed(false);
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   const overview=()=>{
-   const phone=matchMedia('(max-width:650px)').matches;
-   const bounds=phone?mapCities.reduce((box,city)=>{
+   const compact=matchMedia('(max-width:1119px)').matches;
+   const bounds=compact?mapCities.reduce((box,city)=>{
     const [lng,lat]=lngLat(city);
     return [[Math.min(box[0][0],lng),Math.min(box[0][1],lat)],[Math.max(box[1][0],lng),Math.max(box[1][1],lat)]];
    },[[Infinity,Infinity],[-Infinity,-Infinity]]):regionBounds(mapRegion);
-   map.fitBounds(bounds,{padding:phone?{top:80,right:60,bottom:112,left:52}:{top:40,right:32,bottom:44,left:32},maxZoom:11,duration:0});
+   map.fitBounds(bounds,{padding:compact?{top:80,right:60,bottom:112,left:52}:{top:40,right:32,bottom:44,left:32},maxZoom:11,duration:0});
   };
   const layout=()=>{
    if(!map||disposed)return;
@@ -42,7 +42,7 @@ export default function GeographicMap(){
     const button=markerRefs.current[point.id]?.querySelector('button');
     return {id:point.id,x:pixel.x,y:pixel.y,width:button?.offsetWidth||160,height:button?.offsetHeight||44};
    });
-   const placed=arrangeMapMarkers({width:host.clientWidth,height:host.clientHeight,project:points[0],cities:points.slice(1),phone:matchMedia('(max-width:650px)').matches});
+   const placed=arrangeMapMarkers({width:host.clientWidth,height:host.clientHeight,project:points[0],cities:points.slice(1),phone:matchMedia('(max-width:1119px)').matches});
    for(const [id,position] of Object.entries(placed)){
     const element=markerRefs.current[id];if(!element)continue;
     element.hidden=position.hidden;element.style.setProperty('--marker-x',position.x+'px');element.style.setProperty('--marker-y',position.y+'px');element.dataset.side=position.side||'right';element.dataset.docked=String(Boolean(position.docked));

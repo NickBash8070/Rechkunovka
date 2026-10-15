@@ -59,6 +59,6 @@ export function Icon({name}){
  return <SourceArt name={name} className="icon"/>;
 }
 export function Action({children,href='#contact',light=false,onClick,type,disabled=false}){
- const inner=<>{children}<ArrowIcon/></>;
+ const inner=<>{typeof children==='string'?<span className="action-label">{children}</span>:children}<ArrowIcon/></>;
  return onClick||type?<button type={type||'button'} disabled={disabled} className={`action type-ui ${light?'light':''}`} onClick={onClick}>{inner}</button>:<a className={`action type-ui ${light?'light':''}`} href={href}>{inner}</a>;
 }

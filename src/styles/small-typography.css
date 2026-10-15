@@ -1,5 +1,5 @@
 /* Shared readable captions and secondary labels at every viewport. */
-:root{--note-opacity:.45}
+:root{--note-opacity:1}
 .content-composition .section-note>span,
 .content-composition .asset-note,
 .content-composition .potential-copy small,
