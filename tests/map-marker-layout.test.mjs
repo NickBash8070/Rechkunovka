@@ -1,8 +1,44 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {arrangeMapMarkers} from '../src/components/map-marker-layout.js';
+import {mapCities,mapProject} from '../src/components/location-map-data.js';
 function bounds(marker,main=false){const left=marker.x-marker.width/2;return {left,right:left+marker.width,top:marker.y-(marker.height||(main?72:44))-10,bottom:marker.y}}
 const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+
+test('compact phone overview shows all cities on their actual projected points',()=>{
+ const mercator=point=>{const [lat,lng]=point.coordinates;return {x:lng/360,y:-Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))/(2*Math.PI)};};
+ const geographic=mapCities.map(mercator);
+ const minX=Math.min(...geographic.map(p=>p.x)),maxX=Math.max(...geographic.map(p=>p.x));
+ const minY=Math.min(...geographic.map(p=>p.y)),maxY=Math.max(...geographic.map(p=>p.y));
+ for(const width of [260,276,331,386,500,606]){
+  const height=Math.max(440,width);
+  const scale=Math.min((width-112)/(maxX-minX),(height-192)/(maxY-minY));
+  const projectPoint=point=>{
+   const p=mercator(point);
+   return {id:point.id,x:52+(width-112)/2+(p.x-(minX+maxX)/2)*scale,y:80+(height-192)/2+(p.y-(minY+maxY)/2)*scale};
+  };
+  const cities=mapCities.map(city=>({...projectPoint(city),width:city.id==='akademgorodok'?112:city.id==='novosibirsk'?96:72,height:44}));
+  const project={...projectPoint(mapProject),width:166,height:44};
+  const placed=arrangeMapMarkers({width,height,project,cities,phone:true});
+  for(const point of [project,...cities]){
+   assert.equal(placed[point.id].hidden,false,`${point.id} visible at ${width}px`);
+   assert.equal(placed[point.id].x,point.x);
+   assert.equal(placed[point.id].y,point.y);
+  }
+ }
+});
+
+test('phone city names remain available when a larger project plaque crowds them',()=>{
+ const placed=arrangeMapMarkers({width:375,height:440,phone:true,project:{id:'project',x:190,y:310,width:230,height:80},cities:[
+  {id:'akademgorodok',x:185,y:255,width:110,height:44},
+  {id:'berdsk',x:195,y:335,width:65,height:44},
+ ]});
+ assert.equal(placed.berdsk.hidden,false);
+ assert.equal(placed.berdsk.placement,'below');
+ assert.equal(placed.akademgorodok.hidden,false);
+ assert.equal(placed.berdsk.x,195);
+ assert.equal(placed.berdsk.y,335);
+});
 test('project remains inside the map through panning and resizing, without covering zoom controls',()=>{
  for(const width of [260,315,330,440,600,900])for(const x of [-900,0,width*.6,width+900])for(const y of [-900,100,420,1400]){
   const result=arrangeMapMarkers({width,height:424,project:{id:'project',x,y,width:180},cities:[]});

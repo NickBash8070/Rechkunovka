@@ -14,7 +14,7 @@ export function LegalPage({consent=false}){
    <p className="eyebrow type-caption">Версия {consent?CONSENT_VERSION:POLICY_VERSION} · {LEGAL_DATE}</p>
    <h1 className="type-h3">{title}</h1>
    <p className="legal-draft type-caption">Проект документа: сведения оператора и условия работы сервисов в квадратных скобках необходимо заполнить и подтвердить перед публикацией.</p>
-   {sections.map(([heading,body],i)=><section key={heading}><h2 className="type-h4">{i+1}. {heading}</h2><p className="type-body">{body}</p></section>)}
+   {sections.map(([heading,body],i)=><section key={heading} id={heading==='Cookie и локальное хранение'?'cookies':undefined}><h2 className="type-h4">{i+1}. {heading}</h2><p className="type-body">{body}</p></section>)}
    <p className="legal-source type-caption">Правовая основа: <a href="https://mintrud.gov.ru/docs/laws/130" target="_blank" rel="noopener noreferrer">Федеральный закон № 152-ФЗ «О персональных данных»</a>.</p>
   </main>
   <footer className="legal-document-footer"><LegalLinks/></footer>

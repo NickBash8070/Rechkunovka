@@ -14,6 +14,7 @@
 @import './styles/mobile.css';
 @import './styles/icons.css';
 @import './styles/location-map.css';
+@import './styles/cookie-consent.css';
 *{box-sizing:border-box}
 html{scrollbar-width:none}
 html::-webkit-scrollbar{display:none}
@@ -45,6 +46,7 @@ h1,h2,h3,p{margin:0}
 .dialog.image-dialog{padding:0;background:transparent;width:min(1831px,calc(100vw - 32px),calc((100dvh - 48px) * 1719 / 1214 + 112px));max-width:none;max-height:calc(100dvh - 48px);overflow:hidden}
 .dialog.image-dialog .full-concept{display:block;width:100%;height:auto;margin:0;min-height:0;aspect-ratio:1719/1214;object-fit:contain}
 .concept-viewer{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:var(--space-2);align-items:center}
+.concept-viewer .full-concept{touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
 .concept-navigation{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:var(--space-1);background:transparent;color:#fff;border-radius:50%;transition:background-color 180ms ease}
 .concept-navigation:hover,.concept-navigation:focus-visible{background:rgb(255 255 255 / .16)}
 .concept-navigation:focus-visible{outline:2px solid #fff;outline-offset:-2px}

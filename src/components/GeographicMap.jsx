@@ -1,6 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import * as maplibre from 'maplibre-gl';
-import {mapCities,mapProject,mapRegion,mapPhoneRegion,mapInfrastructure,lngLat,regionBounds} from './location-map-data';
+import {mapCities,mapProject,mapRegion,mapInfrastructure,lngLat,regionBounds} from './location-map-data';
 import {locationMapStyle} from './location-map-style';
 import {arrangeMapMarkers} from './map-marker-layout';
 import {MainProjectMarker,CityMarker,InfrastructureMarker} from './MapMarkers';
@@ -25,7 +25,14 @@ export default function GeographicMap(){
   let disposed=false,map,observer,frame,resizeFrame;
   setReady(false);setFailed(false);
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const overview=()=>map.fitBounds(regionBounds(matchMedia('(max-width:650px)').matches?mapPhoneRegion:mapRegion),{padding:{top:40,right:32,bottom:44,left:32},maxZoom:11,duration:0});
+  const overview=()=>{
+   const phone=matchMedia('(max-width:650px)').matches;
+   const bounds=phone?mapCities.reduce((box,city)=>{
+    const [lng,lat]=lngLat(city);
+    return [[Math.min(box[0][0],lng),Math.min(box[0][1],lat)],[Math.max(box[1][0],lng),Math.max(box[1][1],lat)]];
+   },[[Infinity,Infinity],[-Infinity,-Infinity]]):regionBounds(mapRegion);
+   map.fitBounds(bounds,{padding:phone?{top:80,right:60,bottom:112,left:52}:{top:40,right:32,bottom:44,left:32},maxZoom:11,duration:0});
+  };
   const layout=()=>{
    if(!map||disposed)return;
    const host=canvas.current;
@@ -35,10 +42,11 @@ export default function GeographicMap(){
     const button=markerRefs.current[point.id]?.querySelector('button');
     return {id:point.id,x:pixel.x,y:pixel.y,width:button?.offsetWidth||160,height:button?.offsetHeight||44};
    });
-   const placed=arrangeMapMarkers({width:host.clientWidth,height:host.clientHeight,project:points[0],cities:points.slice(1)});
+   const placed=arrangeMapMarkers({width:host.clientWidth,height:host.clientHeight,project:points[0],cities:points.slice(1),phone:matchMedia('(max-width:650px)').matches});
    for(const [id,position] of Object.entries(placed)){
     const element=markerRefs.current[id];if(!element)continue;
     element.hidden=position.hidden;element.style.setProperty('--marker-x',position.x+'px');element.style.setProperty('--marker-y',position.y+'px');element.dataset.side=position.side||'right';element.dataset.docked=String(Boolean(position.docked));
+    element.dataset.placement=position.placement||'above';
     const source=points.find(point=>point.id===id);
     const dx=source.x-position.x,dy=source.y-position.y;
     element.style.setProperty('--leader-length',position.docked?'0px':Math.hypot(dx,dy)+'px');

@@ -21,6 +21,10 @@
 .type-h4{--type-size:var(--font-size-h4);--type-leading:var(--line-height-h4)}
 .type-h5{--type-size:var(--font-size-h5);--type-leading:var(--line-height-h5)}
 .main-project-marker.type-h5{--font-size-h5:23px}
+@media(max-width:650px){
+ .city-marker.type-ui{--type-size:var(--font-size-caption)}
+ .main-project-marker.type-h5{--font-size-h5:14px}
+}
 .type-body{--type-size:var(--font-size-body);--type-leading:var(--line-height-body)}
 .type-caption{--type-size:var(--font-size-caption);--type-leading:var(--line-height-caption)}
 .type-ui{--type-size:var(--font-size-ui);--type-leading:var(--line-height-ui)}

@@ -1,7 +1,27 @@
 const clamp=(value,min,max)=>Math.min(max,Math.max(min,value));
 const overlaps=(a,b)=>a.left<b.right+6&&a.right>b.left-6&&a.top<b.bottom+6&&a.bottom>b.top-6;
 const rect=(x,y,width,height)=>({left:x-width/2,right:x+width/2,top:y-height-10,bottom:y});
-export function arrangeMapMarkers({width,height,project,cities}){
+export function arrangeMapMarkers({width,height,project,cities,phone=false}){
+ if(phone){
+  const intersects=(a,b)=>a.left<b.right+2&&a.right>b.left-2&&a.top<b.bottom+2&&a.bottom>b.top-2;
+  const controls={left:width-56,right:width-12,top:12,bottom:102};
+  const mainBox=rect(project.x,project.y,project.width,project.height||44);
+  const mainVisible=mainBox.right>0&&mainBox.left<width&&mainBox.bottom>0&&mainBox.top<height-44;
+  const result={project:{...project,hidden:!mainVisible,docked:false}};
+  const occupied=mainVisible?[mainBox,controls]:[controls];
+  for(const city of cities){
+   const above=rect(city.x,city.y,city.width,city.height||44);
+   const below={left:above.left,right:above.right,top:city.y,bottom:city.y+10+(city.height||44)};
+   const candidates=[above,below].filter(candidate=>candidate.left>=4&&candidate.right<=width-4&&candidate.top>=4&&candidate.bottom<=height-48);
+   // Keep visible cities available even when the measured project plaque is
+   // larger than expected. Prefer a clear side, then the least covered side.
+   const coverage=candidate=>occupied.reduce((sum,other)=>sum+Math.max(0,Math.min(candidate.right,other.right)-Math.max(candidate.left,other.left))*Math.max(0,Math.min(candidate.bottom,other.bottom)-Math.max(candidate.top,other.top)),0);
+   const box=candidates.find(candidate=>!occupied.some(other=>intersects(candidate,other)))||candidates.sort((a,b)=>coverage(a)-coverage(b))[0];
+   result[city.id]={...city,hidden:!box,placement:box===below?'below':'above'};
+   if(box)occupied.push(box);
+  }
+  return result;
+ }
  const mainHeight=project.height||72;
  const x=clamp(project.x,project.width/2+12,width-project.width/2-12);
  let y=clamp(project.y,mainHeight+22,height-58);

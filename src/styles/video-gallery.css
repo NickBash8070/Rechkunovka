@@ -16,6 +16,16 @@
 .gallery-error button{padding:var(--space-2) var(--space-3);background:var(--color-paper);color:var(--color-text)}
 .video-card .play-icon path[d^="M1312"][stroke]{stroke:none}
 @media(max-width:700px){.dialog.video-dialog{width:min(calc(100% - 32px),69.3333dvh)}.gallery-thumbnails{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--card-gap)}}
+/* Seven phone previews fit in two compact rows instead of three. */
+@media(max-width:650px){
+ .video-dialog .gallery-thumbnails{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--space-2)}
+ .video-dialog .gallery-thumbnails>button{min-width:44px;min-height:44px}
+}
+/* Short phone viewports retain a single, horizontally scrollable preview row. */
+@media(max-width:650px) and (max-height:500px){
+ .dialog.video-dialog{width:min(calc(100% - 32px),calc((94dvh - 160px - env(safe-area-inset-bottom,0px)) * 4 / 3))}
+ .video-dialog .gallery-thumbnails{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:64px;overflow-x:auto;padding:var(--space-1);scroll-padding:var(--space-1)}
+}
 .video-image{aspect-ratio:16/9;overflow:hidden}
 .video-image>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .gallery-play{position:absolute;inset:50% auto auto 50%;translate:-50% -50%;display:grid;place-items:center;width:64px;height:64px;padding:var(--space-2);background:var(--color-text);color:var(--color-paper);border-radius:50%}

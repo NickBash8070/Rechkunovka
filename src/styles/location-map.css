@@ -94,3 +94,15 @@
 @keyframes map-sun-rays{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.65;transform:scale(.93)}}
 @keyframes map-wave-drift{0%,100%{transform:translateX(-1px)}50%{transform:translateX(1px)}}
 @media(prefers-reduced-motion:reduce){.map-waterside-icon :is(g,path){animation:none!important}}
+/* Phone labels keep their geographic pointer; only the plaque may flip below it. */
+@media(max-width:650px){
+ .city-marker{min-height:28px}
+ .city-marker:before{content:'';position:absolute;inset:-8px 0}
+ .city-marker .marker-surface{height:28px;padding:var(--space-1)}
+ .main-project-marker{min-height:44px}
+ .main-project-marker .marker-surface{min-width:0;max-width:none;padding:calc(var(--space-1) / 2) var(--space-1);gap:var(--space-1)}
+ .main-project-marker .icon{--icon-size:32px}
+ .geo-position[data-placement=below] .geo-marker{translate:-50% 10px}
+ .geo-position[data-placement=below] .marker-surface:after{top:auto;bottom:calc(100% - 1px);rotate:180deg}
+ .geo-position:after{display:none}
+}

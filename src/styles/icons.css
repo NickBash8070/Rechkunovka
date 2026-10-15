@@ -17,7 +17,6 @@
 :is(#resort-concept,#market) .stats .stat dd{grid-column:2;grid-row:2;margin:0}
 .hotel-caption-row .icon{width:var(--icon-size);height:var(--icon-size);transform:translateY(var(--icon-optical-y))}
 /* Nimbus's visible letters sit slightly above the line-box center. */
-.arrow-icon{transform:translateY(-2px)}
 .header-desktop .header-request .arrow-icon{top:0}
 .faq-toggle{transform:translateY(-1px)}
 .gallery-play svg{display:block}

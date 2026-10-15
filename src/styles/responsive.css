@@ -74,7 +74,7 @@
 .hero .stat dd{color:var(--color-paper)}
 .hero .stat .icon{filter:brightness(0) invert(1);margin-bottom:var(--space-2)}
 .hero .section-note{margin-top:var(--space-4)}
-.video-card{background:#fff;color:var(--color-text);padding:var(--space-2);text-align:left;width:min(100%,385px);margin-top:var(--space-3);margin-left:auto}
+.video-card{background:var(--color-surface);color:var(--color-text);padding:var(--space-2);text-align:left;width:min(100%,385px);margin-top:var(--space-3);margin-left:auto}
 .video-image{position:relative;aspect-ratio:359/128}
 .video-image>.source-art{height:100%}
 .video-image .play-icon{position:absolute;inset:0;margin:auto;width:54px;height:54px;transition:transform .2s ease;transform-origin:center}
