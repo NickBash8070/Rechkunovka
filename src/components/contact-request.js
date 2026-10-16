@@ -19,8 +19,8 @@ export async function sendContactRequest(values,fetchRequest=fetch){
 
 export function validateContact({phone,name,privacyConsent}){
  const errors={};
- if(!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phone))errors.phone='Введите полный номер: +7 (XXX) XXX-XX-XX.';
- if(name.trim().length<2)errors.name='Укажите имя — не менее двух символов.';
+ if(!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phone))errors.phone='Введите номер в формате: (ХХХ) ххх-хх-хх';
+ if(name.trim().length<2)errors.name='Укажите имя.';
  if(!privacyConsent)errors.privacyConsent='Подтвердите согласие на обработку персональных данных.';
  return errors;
 }

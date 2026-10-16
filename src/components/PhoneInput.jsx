@@ -52,5 +52,5 @@ export function PhoneInput(props){
   pattern="\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}" required
   onFocus={()=>{setFocused(true);caret.current=phoneCaret(digits.length);setRevision(value=>value+1);}}
   onBlur={()=>setFocused(false)} onChange={change} onKeyDown={remove} onPaste={paste}
-  onInvalid={event=>event.currentTarget.setCustomValidity('Введите полный номер: +7 (XXX) XXX-XX-XX.')}/>;
+  onInvalid={event=>event.currentTarget.setCustomValidity('Введите номер в формате: (ХХХ) ххх-хх-хх')}/>;
 }

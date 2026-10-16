@@ -40,7 +40,7 @@ export function ContactForm({onRequest}){
   <PhoneInput id={`${uid}-phone`} className="field-input type-input" aria-label="Телефон" name="phone" aria-invalid={!!errors.phone} aria-describedby={errors.phone?errorId('phone'):undefined}/>
   {errors.phone&&<p className="field-error type-ui" id={errorId('phone')} role="alert">{errors.phone}</p>}
   <label className="field-label type-caption" htmlFor={`${uid}-name`}>ИМЯ</label>
-  <input id={`${uid}-name`} className="field-input type-input" aria-label="Имя" name="name" autoComplete="name" placeholder="Как к вам обращаться" required maxLength={100} aria-invalid={!!errors.name} aria-describedby={errors.name?errorId('name'):undefined}/>
+  <input id={`${uid}-name`} className="field-input type-input" aria-label="Имя" name="name" autoComplete="name" placeholder="Представьтесь, пожалуйста" required maxLength={100} aria-invalid={!!errors.name} aria-describedby={errors.name?errorId('name'):undefined}/>
   {errors.name&&<p className="field-error type-ui" id={errorId('name')} role="alert">{errors.name}</p>}
   <div className="privacy-consent">
    <input id={`${uid}-privacyConsent`} className="consent-checkbox" type="checkbox" name="privacyConsent" required checked={consent} aria-invalid={!!errors.privacyConsent} aria-describedby={errors.privacyConsent?errorId('privacyConsent'):undefined} onChange={event=>{setConsent(event.target.checked);edited(event)}}/>

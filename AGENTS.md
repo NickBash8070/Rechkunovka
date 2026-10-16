@@ -1,5 +1,17 @@
 # Prototype Instructions
 
+User-requested half-size contour badges at 1024px (2026-10-16): only at 961–1119px both circular parcel captions are 66px instead of 132px with 7px text instead of 14px and 8px padding. Preserve parcel drawings and all other breakpoint badge sizes.
+
+User correction for tablet parcel buttons (2026-10-16, 1024px): at 961–1119px use equal 280px buttons with 24px horizontal padding/gap, 56px minimum height, nonshrinking labels and 24px arrows. Selector must beat the later shared phone/tablet width cap; prior max-content rule lost the specificity tie and left text overlapping arrows. Supersedes prior parcel CTA width choice in that range.
+
+User-requested single-line tablet CTA labels (2026-10-16, 1024x768): at 961–1119px shared action labels do not wrap; parcel actions use max-content width without the shared width cap, 24px horizontal padding and 16px arrow gap so “Перейти к участку” stays on one line. Preserve other breakpoints.
+
+User clarification for desktop hotel plaque (2026-10-16): stack resort footer content at >=1120px, with the hotel plaque first at the left content edge and preliminary-visualization credit below, separated by 24px. Explicitly remove the credit's flex:1 expansion; margins alone did not move the plaque from the right in the old horizontal row. Preserve phone/tablet order.
+
+User-requested left hotel plaque on desktop (2026-10-16): align the “Гостиничный комплекс / Визуализация по концепции DIALECTICA” plaque to the left content edge at every breakpoint, including desktop; text is left-aligned. Preserve plaque size, internal padding and bottom spacing. Supersedes the former desktop right placement.
+
+Client-requested contact form wording (2026-10-16): name placeholder is “Представьтесь, пожалуйста”; phone validation (inline and native) says “Введите номер в формате: (ХХХ) ххх-хх-хх” without +7; name error is “Укажите имя.” without mentioning the minimum length. Preserve existing validation and phone mask behavior.
+
 User-requested taller phone concept CTA and separated page count (2026-10-16, 430px): at <=650px the full-width concept action has 72px minimum height and 16px vertical padding; its vertically stacked “154” / “Страницы” group has an 8px gap instead of zero. Preserve label size, arrow and thumbnail alignment.
 
 User-requested equal phone parcel summary halves (2026-10-16): split the area/cadastral row into two equal minmax(0,1fr) columns with 16px gap; align cadastral IDs to the start of the right half instead of the far right, removing the oversized central void. Applies to both parcels at <=650px. Red reference line denotes the split, not a decorative site rule. IDs may scale down to 11px at narrow phone widths.
