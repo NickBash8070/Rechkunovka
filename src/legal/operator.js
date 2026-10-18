@@ -5,6 +5,6 @@ export const operator={
  processors:'[ПОЧТОВЫЙ ПРОВАЙДЕР И ИНЫЕ ОБРАБОТЧИКИ, ИХ РОЛИ]',
  storage:'[МЕСТО ХРАНЕНИЯ ДАННЫХ В РФ]',security:'[ФАКТИЧЕСКИЕ МЕРЫ ЗАЩИТЫ]',
 };
-export const CONSENT_VERSION='1.1';
-export const POLICY_VERSION='1.1';
+export const CONSENT_VERSION='pdf-2026-10-18';
+export const POLICY_VERSION='pdf-2026-10-18';
 export const LEGAL_DATE='15 октября 2026 года';

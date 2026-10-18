@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    { "source": "/privacy", "destination": "/index.html" },
-    { "source": "/personal-data-consent", "destination": "/index.html" }
+  "redirects": [
+    { "source": "/privacy", "destination": "/legal/privacy-policy.pdf", "permanent": false },
+    { "source": "/personal-data-consent", "destination": "/legal/personal-data-consent.pdf", "permanent": false }
   ]
 }

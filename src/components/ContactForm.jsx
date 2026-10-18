@@ -44,7 +44,7 @@ export function ContactForm({onRequest}){
   {errors.name&&<p className="field-error type-ui" id={errorId('name')} role="alert">{errors.name}</p>}
   <div className="privacy-consent">
    <input id={`${uid}-privacyConsent`} className="consent-checkbox" type="checkbox" name="privacyConsent" required checked={consent} aria-invalid={!!errors.privacyConsent} aria-describedby={errors.privacyConsent?errorId('privacyConsent'):undefined} onChange={event=>{setConsent(event.target.checked);edited(event)}}/>
-   <label className="type-caption" htmlFor={`${uid}-privacyConsent`}>Я даю <a href="/personal-data-consent" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="/privacy" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</label>
+   <label className="type-caption" htmlFor={`${uid}-privacyConsent`}>Я даю <a href="/legal/personal-data-consent.pdf" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>.</label>
   </div>
   {errors.privacyConsent&&<p className="field-error type-ui" id={errorId('privacyConsent')} role="alert">{errors.privacyConsent}</p>}
   <Action type="submit" disabled={status==='loading'}>{status==='loading'?'Отправка заявки…':'Запросить материалы'}</Action>

@@ -21,7 +21,7 @@ export function CookieConsent() {
 
   return <aside className="cookie-consent type-ui" aria-label="Использование cookie">
     <p className="cookie-consent-copy">Мы используем cookie для работы сайта.{' '}
-      <a href="/privacy#cookies" target="_blank" rel="noopener noreferrer">Подробнее<span className="cookie-consent-sr"> — политика конфиденциальности, откроется в новой вкладке</span></a>
+      <a href="/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">Подробнее<span className="cookie-consent-sr"> — политика конфиденциальности, откроется в новой вкладке</span></a>
     </p>
     <div className="cookie-consent-actions">
       <button type="button" className="cookie-consent-reject type-ui" onClick={() => choose('rejected')}>Отклонить</button>

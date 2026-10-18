@@ -1,5 +1,19 @@
 # Prototype Instructions
 
+User-provided legal PDFs (2026-10-18): public/legal/privacy-policy.pdf and public/legal/personal-data-consent.pdf are unchanged copies of the supplied policy and consent. All form, footer and cookie links open the appropriate PDF in a new tab, without download attributes. Old /privacy and /personal-data-consent URLs redirect to PDFs, including local client fallback; generated LegalPage is no longer rendered. Consent tracking versions identify these PDFs as pdf-2026-10-18. Supersedes draft legal-page links.
+
+User-requested serif market unit (2026-10-18): the separate “тыс.” market KPI unit inherits the value's P052 family at every breakpoint, overriding the shared sans-serif .stat-unit family.
+
+User-requested equal market KPI sizes (2026-10-18): all four market values share the same responsive font size. Remove smaller third-value overrides for 80–100 thousand on desktop, tablet and phone. Preserve existing serif choice and units.
+
+User-requested resort plaque above credit rule (2026-10-18): at every breakpoint stack the hotel plaque first, then a full-width divider attached to the preliminary-visualization credit below. Remove the footer container's top border/padding; give its credit span the border and normal 16 source-unit / 12px compact top padding. Keep 24px between plaque and rule and left alignment throughout. Supersedes phone/tablet credit-before-plaque order.
+
+User-requested serif market figures (2026-10-18): all four main market KPI values (1.6 million, >2 million, 80–100 thousand, 354) use P052 (--font-display) at every breakpoint. Preserve current sizing, units, dividers and counter behavior.
+
+User-requested serif housing area (2026-10-18): the “8,5 га” housing-concept area value uses P052 (--font-display) at all breakpoints. Preserve its size, spacing and animation.
+
+User-requested serif resort KPI values (2026-10-18): use P052 (--font-display) for all four resort-concept statistic values, 270 / 4 / 4 315 м² / 2 546 м², at every breakpoint. Preserve sizes, icons, labels and counter behavior.
+
 User-requested half-size contour badges at 1024px (2026-10-16): only at 961–1119px both circular parcel captions are 66px instead of 132px with 7px text instead of 14px and 8px padding. Preserve parcel drawings and all other breakpoint badge sizes.
 
 User correction for tablet parcel buttons (2026-10-16, 1024px): at 961–1119px use equal 280px buttons with 24px horizontal padding/gap, 56px minimum height, nonshrinking labels and 24px arrows. Selector must beat the later shared phone/tablet width cap; prior max-content rule lost the specificity tie and left text overlapping arrows. Supersedes prior parcel CTA width choice in that range.

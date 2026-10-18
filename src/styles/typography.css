@@ -6,6 +6,10 @@
 @media(max-width:650px){#plots .plot-visual .asset-note.type-caption{--type-size:12px;font-size:12px}}
 .plot-value,.feature-number,.offer-value{font-family:var(--font-display)}
 .info-section .section-heading.type-h2{font-family:var(--font-display)}
+#resort-concept .stats .stat dt.type-h2{font-family:var(--font-display)}
+#market .market-stats .stat dt.type-h2{font-family:var(--font-display)}
+#market .market-stats .stat-unit.type-h2{font-family:inherit}
+#housing-concept .housing-value.type-h2{font-family:var(--font-display)}
 :root{
  --font-size-h1:clamp(27px,min(calc(6.5vw + 2.8px),12svh),112px);
  --font-size-h2:clamp(26px,calc(2.4vw + 12px),60px);
