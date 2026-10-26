@@ -99,12 +99,12 @@
  #contact .manager-links a{text-decoration-line:underline;text-decoration-thickness:1px;text-decoration-color:rgb(32 54 47 / .35);text-underline-offset:.15em}
  #contact .manager{text-align:center}
  #contact .contact-form{scroll-margin-top:var(--space-3)}
- #contact .agency-footer{flex-direction:column;align-items:center;text-align:center;gap:var(--space-3);padding-block:var(--space-4)}
- #contact .agency-footer .agency-logo{width:128px;height:128px}
- #contact .agency-footer>div:nth-child(2){flex:none;width:100%}
- #contact .agency-footer .agency-site-link{margin:0;justify-content:center}
- #contact .agency-footer .legal-links{flex:none;align-items:center;justify-content:center}
- #contact .agency-footer .legal-links a{justify-content:center;text-align:center}
+ #contact .agency-footer{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;text-align:left;gap:var(--space-1) var(--space-2);padding-block:var(--space-2)}
+ #contact .agency-footer .agency-logo{width:44px;height:44px;align-self:start}
+ #contact .agency-footer>div:nth-child(2){min-width:0;width:100%}
+ #contact .agency-footer .agency-site-link{grid-column:2;margin:0;justify-content:flex-start;gap:var(--space-2)}
+ #contact .agency-footer .legal-links{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-2)}
+ #contact .agency-footer .legal-links a{justify-content:flex-start;text-align:left}
  #location .stats .stat{grid-template-columns:minmax(0,1fr);gap:var(--space-1)}
  #market .stat dt.stat-with-unit{flex-wrap:wrap}
 }

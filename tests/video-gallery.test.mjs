@@ -18,7 +18,7 @@ test('opening the gallery renders a single dormant native player without any MP4
  assert.equal((html.match(/<video\b/g)||[]).length,1);
  const video=html.match(/<video\b[^>]*>/)[0];
  assert.ok(video.includes('preload="none"'));
- assert.ok(video.includes('data-src="/videos/location-07.mp4"'));
+ assert.ok(video.includes(`data-src="${clips[0].src}"`));
  assert.ok(!/\s(?:src|autoplay)=/.test(video));
  assert.ok(video.includes('playsInline')||video.includes('playsinline'));
  assert.ok(html.includes('Воспроизвести видео 01'));
@@ -26,7 +26,7 @@ test('opening the gallery renders a single dormant native player without any MP4
 });
 
 test('all seven selected source files and lightweight posters are distinct and present',()=>{
- assert.equal(clips[0].src,'/videos/location-07.mp4');
+ assert.equal(clips[0].src,'/videos/location-territory-graphics-56ee2be5bb.mp4');
  assert.equal(clips[6].src,'/videos/location-01.mp4');
  assert.equal(clips.length,7);
  assert.equal(new Set(clips.map(c=>c.src)).size,7);

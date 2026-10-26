@@ -32,6 +32,7 @@
 .type-h5{--type-size:var(--font-size-h5);--type-leading:var(--line-height-h5)}
 .main-project-marker.type-h5{--font-size-h5:23px}
 @media(max-width:650px){
+ #contact .agency-footer.type-ui{--type-size:11px;--type-leading:1.4}
  .city-marker.type-ui{--type-size:var(--font-size-caption)}
  .main-project-marker.type-h5{--font-size-h5:14px}
 }

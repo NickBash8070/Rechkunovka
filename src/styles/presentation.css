@@ -361,7 +361,7 @@
  #contact .faq-accordion .faq-answer p{--type-size:16px;padding:0 0 20px}
  #contact .contact-form h3{--type-size:24px}
  #contact .manager-links.type-h4{--type-size:22px}
- #contact .agency-footer{padding-block:24px;margin-top:32px}
+ #contact .agency-footer{padding-block:16px;margin-top:24px}
 }
 
 /* Potential starts with its heading, without the other photo slides' eyebrow. */
@@ -398,9 +398,9 @@
 #root .content-composition .feature .feature-number{padding-block:0}
 #root .numbered-list .feature{display:grid;grid-template-columns:calc(28 * var(--slide-unit)) minmax(0,1fr);row-gap:calc(8 * var(--slide-unit))}
 #root .numbered-list .feature>div{display:contents}
-#root .numbered-list .feature h3{grid-column:2;grid-row:1;margin:0}
+#root .numbered-list .feature h3{grid-column:2;grid-row:1;margin:0;align-self:first baseline}
 #root .numbered-list .feature p{grid-column:2;grid-row:2;margin:0;--type-size:clamp(18px,calc(24 * var(--slide-unit)),26px);--type-leading:1.4}
-#root .numbered-list .feature .feature-number{grid-column:1;grid-row:1;order:0}
+#root .numbered-list .feature .feature-number{grid-column:1;grid-row:1;order:0;align-self:first baseline}
 @supports(text-box-trim:trim-both){
  #root .content-composition .feature :is(h3,.feature-number){text-box-trim:trim-both;text-box-edge:cap alphabetic}
 }

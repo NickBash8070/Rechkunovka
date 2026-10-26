@@ -9,13 +9,16 @@ site = Path(__file__).resolve().parents[1]
 source = site.parent / 'video' / 'Бердск'
 destination = site / 'public' / 'videos'
 destination.mkdir(parents=True, exist_ok=True)
-files = sorted(source.glob('DJI_*_stabilized_1.mp4')) + sorted(source.glob('БЕРДСК*_1.mp4'))
+manifest = site / 'src' / 'components' / 'video-clips.json'
+approved = json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else []
+# Rebuilding assets must retain the approved gallery order and replacements.
+files = [source / clip['source'] for clip in approved] if approved else sorted(source.glob('DJI_*_stabilized_1.mp4')) + sorted(source.glob('БЕРДСК*_1.mp4'))
 clips = []
 for index, file in enumerate(files, 1):
     probe = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_streams', '-show_format', '-of', 'json', str(file)]))
     stream = next(s for s in probe['streams'] if s['codec_type'] == 'video')
     duration = float(probe['format']['duration'])
-    name = f'location-{index:02d}'
+    name = Path(approved[index - 1]['src']).stem if approved else f'location-{index:02d}'
     shutil.copy2(file, destination / f'{name}.mp4')
     subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-ss', str(min(12, duration * .15)), '-i', str(file), '-frames:v', '1', '-vf', ('crop=960:720:160:0,scale=640:-2' if file.name.startswith('DJI_') else 'scale=640:-2'), '-c:v', 'libwebp', '-quality', '82', str(destination / f'{name}.webp')], check=True)
     poster = destination / f'{name}.webp'
