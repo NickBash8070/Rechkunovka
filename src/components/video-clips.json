@@ -86,15 +86,15 @@
   {
     "id": 6,
     "label": "Видео 07",
-    "poster": "/videos/location-01-ae83004bbb.webp",
-    "src": "/videos/location-01.mp4",
-    "source": "DJI_20260928112737_0001_D_stabilized_1.mp4",
-    "bytes": 197327280,
-    "posterBytes": 58558,
-    "duration": 152.719233,
+    "poster": "/videos/location-winter-520290f76f.webp",
+    "src": "/videos/location-winter-520290f76f.mp4",
+    "source": "Зимний ролик_1.mp4",
+    "bytes": 68390268,
+    "posterBytes": 45870,
+    "duration": 53.2,
     "width": 1280,
     "height": 720,
     "codec": "h264",
-    "cropBlackBars": true
+    "cropBlackBars": false
   }
 ]

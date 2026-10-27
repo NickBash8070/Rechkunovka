@@ -27,7 +27,8 @@ test('opening the gallery renders a single dormant native player without any MP4
 
 test('all seven selected source files and lightweight posters are distinct and present',()=>{
  assert.equal(clips[0].src,'/videos/location-territory-graphics-56ee2be5bb.mp4');
- assert.equal(clips[6].src,'/videos/location-01.mp4');
+ assert.equal(clips[6].src,'/videos/location-winter-520290f76f.mp4');
+ assert.equal(clips[6].source,'Зимний ролик_1.mp4');
  assert.equal(clips.length,7);
  assert.equal(new Set(clips.map(c=>c.src)).size,7);
  assert.equal(new Set(clips.map(c=>c.source)).size,7);

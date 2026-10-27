@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+User-provided winter video (2026-10-27): replace the seventh gallery clip with video/Бердск/Зимний ролик_1.mp4, copied unchanged to public/videos/location-winter-520290f76f.mp4 with its own WebP poster. The H.264 video is 1280×720 and 53.2 seconds, has no black bars or audio, and uses the gallery's existing 4:3 frame. Keep clips 01–06 in their current order, muted click-to-play loading, and the single-player lifecycle. Asset preparation follows manifest order. This supersedes the earlier seventh-item location-01.mp4 selection.
+
 User-provided replacement first gallery video (2026-10-26): “БЕРДСК_Территория_ДРОН_c_графикой_mp4_h264_1080p25_BB.mp4” is copied unchanged into video/Бердск and public/videos/location-territory-graphics-56ee2be5bb.mp4. First manifest item uses this 40.576-second 1920×1080 H.264 clip and its new WebP poster. Keep six remaining clips in the current order, original source files, muted Play-only loading and one-player lifecycle. Asset preparation now follows manifest source order rather than rebuilding the old filename-sorted order, preserving replacements. This supersedes the old first-item location-07.mp4 selection.
 
 User-requested resort list number alignment (2026-10-26): align all 01–03 resort-concept numbers with the first baseline of their heading. A wrapped third heading must not vertically center 03 against both lines. Use first-baseline alignment on the number and heading grid items; preserve the two-row heading/description structure, responsive wrapping and existing type sizes.
