@@ -26,7 +26,8 @@ test('request includes consent versions and UTC time without extra tracking data
 test('email API receives contact and consent details at the approved recipient',async()=>{
  const payload=consentRequest(valid);
  const result=await sendContactRequest(payload,async(url,options)=>{
-  assert.equal(url,`https://formsubmit.co/ajax/${REQUEST_EMAIL}`);
+  assert.equal(REQUEST_EMAIL,'burde@bk.ru');
+  assert.equal(url,'https://formsubmit.co/ajax/burde@bk.ru');
   assert.equal(options.method,'POST');
   const body=JSON.parse(options.body);
   for(const [key,value] of Object.entries(payload))assert.equal(body[key],value);

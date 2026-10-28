@@ -1,6 +1,6 @@
 import {CONSENT_VERSION,POLICY_VERSION} from '../legal/operator.js';
 
-export const REQUEST_EMAIL='nicolaibashkirev@gmail.com';
+export const REQUEST_EMAIL='burde@bk.ru';
 
 export async function sendContactRequest(values,fetchRequest=fetch){
  const response=await fetchRequest(`https://formsubmit.co/ajax/${REQUEST_EMAIL}`,{
