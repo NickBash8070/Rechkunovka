@@ -18,8 +18,7 @@
 @import './styles/client-refinements.css';
 @import './styles/presentation.css';
 *{box-sizing:border-box}
-html{scrollbar-width:none}
-html::-webkit-scrollbar{display:none}
+html{scrollbar-width:auto;scrollbar-gutter:stable}
 body{margin:0;min-width:320px;background:var(--color-background);color:var(--color-text);font-family:var(--font-body)}
 button,input,a{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
@@ -88,3 +87,15 @@ h1,h2,h3,p{margin:0}
 .faq-accordion summary[aria-expanded=true] .faq-toggle:after{transform:scaleY(0)}
 .agency-footer button{gap:var(--space-4)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.back-to-top-row{display:flex;justify-content:center;margin-top:48px}
+.back-to-top{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:56px;padding:16px 24px;border:1px solid currentColor;color:var(--color-text);text-transform:none;transition:background-color 180ms,color 180ms}
+.back-to-top .back-to-top-arrow{transform:rotate(-90deg);flex-shrink:0;width:24px;height:24px}
+.back-to-top:hover{background:var(--color-text);color:var(--color-background)}
+@media(max-width:650px){.back-to-top-row{margin-top:32px}.back-to-top{width:100%;min-height:56px}}
+@media(max-width:1119px){
+ html{scrollbar-width:none;scrollbar-gutter:auto}
+ html::-webkit-scrollbar{display:none}
+}
+.back-to-top{height:max(44px,calc(54 * var(--slide-unit)));min-height:max(44px,calc(54 * var(--slide-unit)));padding-block:0}
+@media(max-width:1119px){.back-to-top{height:56px;min-height:56px}}
+@media(max-width:650px){.back-to-top{height:48px;min-height:48px}}
